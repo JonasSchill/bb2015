@@ -12,5 +12,5 @@
 #define CLAW_UP 300
 #define CLAW_DOWN 790
 
-#define PI
+#define PI 3.14159265359
 #define CMTOBEMF (850/(PI*WHEEL_DIAMETER))
