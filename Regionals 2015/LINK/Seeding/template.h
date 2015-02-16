@@ -3,8 +3,8 @@
 
 //comment out the one you are not using, using create and commenting out link by default
 
-#define CREATE
-//#define LINK
+//#define CREATE
+#define LINK
 
 //include global things here
 #include <stdio.h>
