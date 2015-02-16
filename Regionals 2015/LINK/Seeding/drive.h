@@ -14,3 +14,18 @@
 
 #define PI 3.14159265359
 #define CMTOBEMF (850/(PI*WHEEL_DIAMETER))
+
+//claw actions
+void enableAllServos();
+void raiseClaw();
+void lowerClaw();
+void openClaw();
+void closeClaw();
+
+//drive actions
+void driveForward(float distance, float speed);
+void driveBackward(float distance, float speed);
+void driveUntilLine(int direction, float distance, float speed);
+void turnRight(float degrees, float radius, float speed);
+void turnLeft(float degrees, float radius, float speed);
+

@@ -1,10 +1,17 @@
+/**
+	drive.c
+	Purpose: Holds functions that move diferent parts of the robot.
+	@author Jonas Schill, Andy Wang
+	@version 1.1 2/16/2015
+*/
+
 #include "drive.h"
 
 //---------Claw actions---------//
 
 	void enableAllServos() {
 		lowerClaw();
-		openClaw();
+		closeClaw();
 			enable_servos();
 	}
 	
@@ -35,10 +42,57 @@
 		closeClaw();
 	}
 
-//			Driving
-//	void driveForward(Speed,Distance) {
-//		motor(MOTOR_LEFT,driveForward(float Speed);
-//		msleep();
-//		motor(MOTOR_RIGHT,driveForward(float Speed);
-//		msleep();
-//	}
+//---------Drive Acttions---------//
+	
+	/**
+		Drives the robot forward a specified distance at a specified speed.
+		
+		@param distance : The distance is measured in cm
+		@param speed : The speed is a number between 0 and 1
+	*/
+	void driveForward(float distance, float speed) {
+		
+	}
+	
+	/**
+		Drives the robot backward a specified distance at a specified speed.
+		
+		@param distance : The distance is measured in cm
+		@param speed : The speed is a number between 0 and 1
+	*/
+	void driveBackward(float distance, fload speed) {
+		
+	}
+	
+	/**
+		Drives the robot in a specified direction until it reaches a black line.
+		
+		@param direction : 0 is forward and 1 is backward
+		@param distance : The distance is measured in cm
+		@param speed : The speed is a number between 0 and 1
+	*/
+	void driveUntilLine(int direction, float distance, float speed) {
+		
+	}
+	
+	/**
+		Drives the robot a specified number of degrees around a circle of specified radius.
+	
+		@param degrees : How many degrees the robot should move around the arc
+		@param radius : The radius of the arc the robot will travel in (in cm)
+		@param speed : The speed is a number between 0 and 1
+	*/
+	void turnRight(float degrees, float radius, float speed) {
+		
+	}
+	
+	/**
+		Drives the robat forward a specified distance at a specified speed.
+		
+		@param degrees : The distance is measured in cm
+		@param radius : The radius of the arc the robot will travel in (in cm)
+		@param speed The speed is a number between 0 and 1
+	*/
+	void turnLeft(float degrees, float radius, float speed) {
+		
+	}
