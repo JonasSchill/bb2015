@@ -76,6 +76,26 @@
 	}
 	
 	/**
+		Makes the robot follow a line fowrward for a specified distance at a specified speed.
+	
+		@param distance : The distance the robot should go in cm
+		@param speed : a number between 0 and 1
+	*/
+	void lineFollowForward(float distance, float speed) {
+		
+	}
+	
+	/**
+		Makes the robot follow a line fowrward for a specified distance at a specified speed.
+	
+		@param distance : The distance the robot should go in cm
+		@param speed : a number between 0 and 1
+	*/
+	void lineFollowBackward(float distance, float speed) {
+		
+	}
+	
+	/**
 		Drives the robot a specified number of degrees around a circle of specified radius.
 	
 		@param degrees : How many degrees the robot should move around the arc
