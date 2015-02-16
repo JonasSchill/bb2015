@@ -3,7 +3,9 @@
 //---------Claw actions---------//
 
 	void enableAllServos() {
-			
+		lowerClaw();
+		openClaw();
+			enable_servos();
 	}
 	
 	void raiseClaw () {
