@@ -13,6 +13,8 @@
 #define CLAW_DOWN 790
 
 #define PI 3.14159265359
+
+//tune this value to make driving as accurate as possible
 #define CMTOBEMF (850/(PI*WHEEL_DIAMETER))
 
 //claw actions
