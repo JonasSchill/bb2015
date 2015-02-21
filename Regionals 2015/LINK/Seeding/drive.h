@@ -11,6 +11,8 @@
 #define CLAW_CLOSED 1600
 #define CLAW_UP 300
 #define CLAW_DOWN 790
+#define LIGHT_LS 
+#define RIGHT_LS
 
 #define PI 3.14159265359
 
