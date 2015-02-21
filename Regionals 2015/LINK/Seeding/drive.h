@@ -7,14 +7,13 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 900
-#define CLAW_CLOSED 1600
+#define CLAW_OPEN 1170
+#define CLAW_CLOSED 1750
 #define CLAW_UP 300
 #define CLAW_DOWN 790
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define BLACK_VALUE 750
-
 #define PI 3.14159265359
 
 //tune this value to make driving as accurate as possible
