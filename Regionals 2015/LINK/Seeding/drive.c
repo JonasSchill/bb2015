@@ -69,7 +69,13 @@
 		@param speed : The speed is a number between 0 and 1
 	*/
 	void driveBackward(float distance, float speed) {
-		
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_LEFT,-speed*LEFT_FULL_POWER);
+		motor(MOTOR_RIGHT,-speed*RIGHT_FULL_POWER);
+		while(get_motor_position_counter(MOTOR_LEFT)>-distance*CMTOBEMF && get_motor_position_counter(MOTOR_RIGHT)>-distance*CMTOBEMF){
+		}
+		ao();
 	}
 	
 	/**
@@ -108,10 +114,12 @@
 	
 		@param degrees : How many degrees the robot should move around the arc
 		@param radius : The radius of the arc the robot will travel in (in cm)
-		@param speed : The speed is a number between 0 and 1
 	*/
-	void turnRight(float degrees, float radius, float speed) {
-		
+	void turnRight(float degrees, float radius) {
+		degrees = -degrees;
+		long turnL = ((
+		long turnR = 
+			
 	}
 	
 	/**
@@ -119,9 +127,8 @@
 		
 		@param degrees : The distance is measured in cm
 		@param radius : The radius of the arc the robot will travel in (in cm)
-		@param speed The speed is a number between 0 and 1
 	*/
-	void turnLeft(float degrees, float radius, float speed) {
+	void turnLeft(float degrees, float radius) {
 		
 	}
 	

@@ -1,7 +1,5 @@
 #include "template.h"
 
 int main() {
-		printf("in main");
-		enableAllServos();
-
+	printf("in main");
 }
