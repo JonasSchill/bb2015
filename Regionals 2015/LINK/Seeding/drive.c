@@ -28,7 +28,7 @@
 	}
 	
 	void closeClaw () {
-		set_servo_position(SERVO_OPEN_CLOSE,CLAW_CLOSE);
+		set_servo_position(SERVO_OPEN_CLOSE,CLAW_CLOSED);
 	}
 	
 	void dumpClaw () {
@@ -51,7 +51,15 @@
 		@param speed : The speed is a number between 0 and 1
 	*/
 	void driveForward(float distance, float speed) {
-		
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER);
+		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER);
+		printf("%d", get_motor_position_counter(MOTOR_LEFT));
+		while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {
+		}
+		printf("%d", get_motor_position_counter(MOTOR_LEFT));
+		ao();
 	}
 	
 	/**
@@ -114,5 +122,9 @@
 		@param speed The speed is a number between 0 and 1
 	*/
 	void turnLeft(float degrees, float radius, float speed) {
+		
+	}
+	
+	void squareUp() {
 		
 	}
