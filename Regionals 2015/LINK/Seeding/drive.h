@@ -3,7 +3,7 @@
 #define WHEEL_DIAMETER 4.4
 #define MOTOR_LEFT 1
 #define MOTOR_RIGHT 0
-#define LEFT_FULL_POWER 97
+#define LEFT_FULL_POWER 95
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
@@ -17,7 +17,7 @@
 #define PI 3.14159265359
 
 //tune this value to make driving as accurate as possible
-#define CMTOBEMF (845/(PI*WHEEL_DIAMETER))
+#define CMTOBEMF (860/(PI*WHEEL_DIAMETER))
 
 //claw actions
 void enableAllServos();
