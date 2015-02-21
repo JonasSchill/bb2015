@@ -10,9 +10,9 @@
 //---------Claw actions---------//
 
 	void enableAllServos() {
+		enable_servos();
 		lowerClaw();
 		closeClaw();
-		enable_servos();
 	}
 	
 	void raiseClaw () {
@@ -55,9 +55,7 @@
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER);
 		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER);
-		printf("%d", get_motor_position_counter(MOTOR_LEFT));
-		while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {
-		}
+		while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {}
 		printf("%d", get_motor_position_counter(MOTOR_LEFT));
 		ao();
 	}
@@ -69,13 +67,7 @@
 		@param speed : The speed is a number between 0 and 1
 	*/
 	void driveBackward(float distance, float speed) {
-		clear_motor_position_counter(MOTOR_LEFT);
-		clear_motor_position_counter(MOTOR_RIGHT);
-		motor(MOTOR_LEFT,-speed*LEFT_FULL_POWER);
-		motor(MOTOR_RIGHT,-speed*RIGHT_FULL_POWER);
-		while(get_motor_position_counter(MOTOR_LEFT)>-distance*CMTOBEMF && get_motor_position_counter(MOTOR_RIGHT)>-distance*CMTOBEMF){
-		}
-		ao();
+		
 	}
 	
 	/**
@@ -85,8 +77,26 @@
 		@param distance : The distance is measured in cm
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void driveUntilLine(int direction, float speed) {
-		
+	void driveUntilLine(float speed) {
+		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
+		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //forward half power
+		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
+		ao();
+		msleep(500);
+		if (analog(LS_LEFT) > BLACK_VALUE) //checking which sensor saw black first
+		{
+			motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //turn to straighten on line
+			motor(MOTOR_LEFT, -20);
+			while (analog(LS_RIGHT) < BLACK_VALUE) {}
+			ao();
+		}
+		if (analog(LS_RIGHT) > BLACK_VALUE) 
+		{
+			motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
+			motor(MOTOR_RIGHT, -20);
+			while (analog(LS_LEFT) < BLACK_VALUE) {}
+			ao();
+		}
 	}
 	
 	/**
@@ -145,12 +155,10 @@
 		@param radius : The radius of the arc the robot will travel in (in cm)
 		@param speed The speed is a number between 0 and 1
 	*/
-	void turnLeft(float degrees, float radius, float speed) {
+	void turnLeft(float degrees, float radius) {
 		
 	}
 	
 	void squareUp(float speed,float time) {
-		motor(MOTOR_RIGHT,speed*-1*LEFT_FULL_POWER);
-		motor(MOTOR_LEFT,speed*-1*RIGHT_FULL_POWER);
-		msleep(time*1000);
+		
 	}
