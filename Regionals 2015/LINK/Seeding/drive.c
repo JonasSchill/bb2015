@@ -69,7 +69,13 @@
 		@param speed : The speed is a number between 0 and 1
 	*/
 	void driveBackward(float distance, float speed) {
-		
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_LEFT,-speed*LEFT_FULL_POWER);
+		motor(MOTOR_RIGHT,-speed*RIGHT_FULL_POWER);
+		while(get_motor_position_counter(MOTOR_LEFT)>-distance*CMTOBEMF && get_motor_position_counter(MOTOR_RIGHT)>-distance*CMTOBEMF){
+		}
+		ao();
 	}
 	
 	/**
