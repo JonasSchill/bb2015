@@ -116,8 +116,26 @@
 		@param radius : The radius of the arc the robot will travel in (in cm)
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void turnRight(float degrees, float radius, float speed) {
-		
+	void turnRight(float degrees, float radius) {
+		double c = 1;//tuning constant
+		double da = 14.3;//distance between middle of wheels on the link
+		double dl = (degrees/360)*2*PI*radius;//distance left wheel has to travel in the turn
+		double dr = (degrees/360)*2*PI*(radius-da);//distance right wheel has to travel in the turn
+		double pl = 1;//power of left motor (full power for fastest possible turn)
+		double pr = (dr/dl)*c;//power of right motor(directly proportional to ratio of distances)
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_LEFT,pl*LEFT_FULL_POWER);
+		motor(MOTOR_RIGHT,pr*RIGHT_FULL_POWER);
+		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF&&get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){
+		//	if(get_motor_position_counter(MOTOR_LEFT)>=dl*CMTOBEMF){
+				//motor(MOTOR_LEFT,0);
+			//}
+			//if(get_motor_position_counter(MOTOR_RIGHT)>=dr*CMTOBEMF){
+				//motor(MOTOR_RIGHT,0);
+			//}
+		}
+		ao();
 	}
 	
 	/**
