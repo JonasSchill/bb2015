@@ -125,6 +125,8 @@
 		
 	}
 	
-	void squareUp() {
-		
+	void squareUp(float speed,float time) {
+		motor(MOTOR_RIGHT,speed*-1*LEFT_FULL_POWER);
+		motor(MOTOR_LEFT,speed*-1*RIGHT_FULL_POWER);
+		msleep(time*1000);
 	}

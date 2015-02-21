@@ -32,5 +32,5 @@ void driveBackward(float distance, float speed);
 void driveUntilLine(int direction, float speed);
 void turnRight(float degrees, float radius, float speed);
 void turnLeft(float degrees, float radius, float speed);
-void squareUp();
+void squareUp(float speed,float time);
 
