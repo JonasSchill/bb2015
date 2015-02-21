@@ -1,6 +1,6 @@
 /**
 	drive.c
-	Purpose: Holds functions that move diferent parts of the robot.
+	Purpose: Holds functions that move different parts of the robot.
 	@author Jonas Schill, Andy Wang
 	@version 1.1 2/16/2015
 */
@@ -12,7 +12,7 @@
 	void enableAllServos() {
 		lowerClaw();
 		closeClaw();
-			enable_servos();
+		enable_servos();
 	}
 	
 	void raiseClaw () {
@@ -42,7 +42,7 @@
 		closeClaw();
 	}
 
-//---------Drive Acttions---------//
+//---------Drive Actions---------//
 	
 	/**
 		Drives the robot forward a specified distance at a specified speed.
@@ -60,7 +60,7 @@
 		@param distance : The distance is measured in cm
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void driveBackward(float distance, fload speed) {
+	void driveBackward(float distance, float speed) {
 		
 	}
 	
@@ -76,7 +76,7 @@
 	}
 	
 	/**
-		Makes the robot follow a line fowrward for a specified distance at a specified speed.
+		Makes the robot follow a line forwward for a specified distance at a specified speed.
 	
 		@param distance : The distance the robot should go in cm
 		@param speed : a number between 0 and 1
@@ -86,7 +86,7 @@
 	}
 	
 	/**
-		Makes the robot follow a line fowrward for a specified distance at a specified speed.
+		Makes the robot follow a line forward for a specified distance at a specified speed.
 	
 		@param distance : The distance the robot should go in cm
 		@param speed : a number between 0 and 1
@@ -107,7 +107,7 @@
 	}
 	
 	/**
-		Drives the robat forward a specified distance at a specified speed.
+		Drives the robot forward a specified distance at a specified speed.
 		
 		@param degrees : The distance is measured in cm
 		@param radius : The radius of the arc the robot will travel in (in cm)
