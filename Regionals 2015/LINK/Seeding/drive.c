@@ -71,12 +71,12 @@
 		@param distance : The distance is measured in cm
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void driveUntilLine(int direction, float distance, float speed) {
+	void driveUntilLine(int direction, float speed) {
 		
 	}
 	
 	/**
-		Makes the robot follow a line forwward for a specified distance at a specified speed.
+		Makes the robot follow a line forward for a specified distance at a specified speed.
 	
 		@param distance : The distance the robot should go in cm
 		@param speed : a number between 0 and 1
