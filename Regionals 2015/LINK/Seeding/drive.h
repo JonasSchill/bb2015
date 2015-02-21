@@ -11,8 +11,9 @@
 #define CLAW_CLOSED 1600
 #define CLAW_UP 300
 #define CLAW_DOWN 790
-#define LIGHT_LS 
-#define RIGHT_LS
+#define LS_LEFT 1
+#define LS_RIGHT 0
+#define BLACK_VALUE 750
 
 #define PI 3.14159265359
 
@@ -29,7 +30,7 @@ void closeClaw();
 //drive actions
 void driveForward(float distance, float speed);
 void driveBackward(float distance, float speed);
-void driveUntilLine(int direction, float speed);
+void driveUntilLine(float speed);
 void turnRight(float degrees, float radius, float speed);
 void turnLeft(float degrees, float radius, float speed);
 void squareUp();
