@@ -13,7 +13,7 @@
 #define CLAW_DOWN 778
 #define LS_LEFT 1
 #define LS_RIGHT 0
-#define BLACK_VALUE 750
+#define BLACK_VALUE 400
 #define PI 3.14159265359
 
 //tune this value to make driving as accurate as possible

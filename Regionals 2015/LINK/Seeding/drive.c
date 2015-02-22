@@ -88,19 +88,23 @@
 		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //forward half power
 		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
 		ao();
-		msleep(500);
+		msleep(300);
 		if (analog(LS_LEFT) > BLACK_VALUE) //checking which sensor saw black first
 		{
 			motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //turn to straighten on line
-			motor(MOTOR_LEFT, -20);
 			while (analog(LS_RIGHT) < BLACK_VALUE) {}
+			ao();
+			motor(MOTOR_LEFT, -35);
+			while (analog(LS_LEFT) > BLACK_VALUE) {}
 			ao();
 		}
 		if (analog(LS_RIGHT) > BLACK_VALUE) 
 		{
 			motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
-			motor(MOTOR_RIGHT, -20);
 			while (analog(LS_LEFT) < BLACK_VALUE) {}
+			ao();
+			motor(MOTOR_RIGHT, -35);
+			while (analog(LS_RIGHT) > BLACK_VALUE) {}
 			ao();
 		}
 	}
@@ -134,7 +138,7 @@
 	*/
 	void turnRight(float degrees, float radius) {
 		double c = 1;//tuning constant
-		double da = 14.3;//distance between middle of wheels on the link
+		double da = 12;//distance between middle of wheels on the link
 		double dl = (degrees/360)*2*PI*radius;//distance left wheel has to travel in the turn
 		double dr = (degrees/360)*2*PI*(radius-da);//distance right wheel has to travel in the turn
 		double pl = 1;//power of left motor (full power for fastest possible turn)
@@ -143,13 +147,13 @@
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,pl*LEFT_FULL_POWER);
 		motor(MOTOR_RIGHT,pr*RIGHT_FULL_POWER);
-		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF&&get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){
-		//	if(get_motor_position_counter(MOTOR_LEFT)>=dl*CMTOBEMF){
-				//motor(MOTOR_LEFT,0);
-			//}
-			//if(get_motor_position_counter(MOTOR_RIGHT)>=dr*CMTOBEMF){
-				//motor(MOTOR_RIGHT,0);
-			//}
+		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF||get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){
+		if(get_motor_position_counter(MOTOR_LEFT)>=dl*CMTOBEMF){
+				motor(MOTOR_LEFT,0);
+			}
+			if(get_motor_position_counter(MOTOR_RIGHT)>=dr*CMTOBEMF){
+				motor(MOTOR_RIGHT,0);
+			}
 		}
 		ao();
 	}
