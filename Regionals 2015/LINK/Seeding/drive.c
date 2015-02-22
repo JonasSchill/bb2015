@@ -152,12 +152,13 @@
 			//}
 		}
 		ao();*/
-		int c = 1;//tuning constant
-		int dl = (degrees/360)*2*PI*radius*c;
+		double c = 1.015;//tuning constant
+		double radius = 14.3;
+		double dl = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,LEFT_FULL_POWER);
-		while(get_motor_position(MOTOR_LEFT)<dl*CMTOBEMF){	
+		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF){	
 		}
 		ao();
 	}
@@ -170,12 +171,13 @@
 		@param speed The speed is a number between 0 and 1
 	*/
 	void turnLeft(float degrees/*, float radius*/) {
-		int c = 1;//tuning constant
-		int dr = (degrees/360)*2*PI*radius*c;
+		double radius = 14.3;
+		double c = 1;//tuning constant
+		double dr = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_RIGHT,RIGHT_FULL_POWER);
-		while(get_motor_position(MOTOR_RIGHT)<dr*CMTOBEMF){	
+		while(get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){	
 		}
 		ao();
 	}

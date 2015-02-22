@@ -30,6 +30,6 @@ void closeClaw();
 void driveForward(float distance, float speed);
 void driveBackward(float distance, float speed);
 void driveUntilLine(float speed);
-void turnRight(float degrees, float radius);
-void turnLeft(float degrees, float radius);
+void turnRight(float degrees/*, float radius*/);
+void turnLeft(float degrees/*, float radius*/);
 void squareUp(float speed,float time);
