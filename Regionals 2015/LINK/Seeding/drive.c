@@ -132,8 +132,8 @@
 		@param radius : The radius of the arc the robot will travel in (in cm)
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void turnRight(float degrees, float radius) {
-		double c = 1;//tuning constant
+	void turnRight(float degrees/*, float radius*/) {
+		/*double c = 1;//tuning constant
 		double da = 14.3;//distance between middle of wheels on the link
 		double dl = (degrees/360)*2*PI*radius;//distance left wheel has to travel in the turn
 		double dr = (degrees/360)*2*PI*(radius-da);//distance right wheel has to travel in the turn
@@ -151,6 +151,14 @@
 				//motor(MOTOR_RIGHT,0);
 			//}
 		}
+		ao();*/
+		int c = 1;//tuning constant
+		int dl = (degrees/360)*2*PI*radius*c;
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_LEFT,LEFT_FULL_POWER);
+		while(get_motor_position(MOTOR_LEFT)<dl*CMTOBEMF){	
+		}
 		ao();
 	}
 	
@@ -161,8 +169,15 @@
 		@param radius : The radius of the arc the robot will travel in (in cm)
 		@param speed The speed is a number between 0 and 1
 	*/
-	void turnLeft(float degrees, float radius) {
-		
+	void turnLeft(float degrees/*, float radius*/) {
+		int c = 1;//tuning constant
+		int dr = (degrees/360)*2*PI*radius*c;
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		motor(MOTOR_RIGHT,RIGHT_FULL_POWER);
+		while(get_motor_position(MOTOR_RIGHT)<dr*CMTOBEMF){	
+		}
+		ao();
 	}
 	
 	void squareUp(float speed,float time) {
