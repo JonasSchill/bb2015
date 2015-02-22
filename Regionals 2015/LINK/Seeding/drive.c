@@ -10,9 +10,9 @@
 //---------Claw actions---------//
 
 	void enableAllServos() {
+		set_servo_position(SERVO_UP_DOWN, CLAW_DOWN);
+		set_servo_position(SERVO_OPEN_CLOSE, CLAW_OPEN);
 		enable_servos();
-		lowerClaw();
-		closeClaw();
 	}
 	
 	void raiseClaw () {
