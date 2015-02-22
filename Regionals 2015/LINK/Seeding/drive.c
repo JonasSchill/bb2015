@@ -143,7 +143,7 @@
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,pl*LEFT_FULL_POWER);
 		motor(MOTOR_RIGHT,pr*RIGHT_FULL_POWER);
-		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF&&get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){
+		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF||get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){
 		//	if(get_motor_position_counter(MOTOR_LEFT)>=dl*CMTOBEMF){
 				//motor(MOTOR_LEFT,0);
 			//}
