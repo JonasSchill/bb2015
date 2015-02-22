@@ -171,3 +171,13 @@
 		motor(MOTOR_LEFT,speed*-1*RIGHT_FULL_POWER);
 		msleep(time*1000);
 	}
+	
+	void backwardLineFollow(float distance, float speed) {
+		motor(MOTOR_LEFT, -speed*LEFT_FULL_POWER/2);
+		motor(MOTOR_RIGHT, -speed*RIGHT_FULL_POWER/2); //forward half power
+		clear_motor_position_counter(MOTOR_LEFT);
+		clear_motor_position_counter(MOTOR_RIGHT);
+		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
+		ao();
+		//while( << to finish
+		}
