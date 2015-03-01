@@ -137,6 +137,7 @@
 		@param speed : The speed is a number between 0 and 1
 	*/
 
+
 	void turnRight(float degrees/*, float radius*/) {
 		/*double c = 1;//tuning constant
 		double da = 14.3;//distance between middle of wheels on the link
@@ -144,6 +145,7 @@
 		double dr = (degrees/360)*2*PI*(radius-da);//distance right wheel has to travel in the turn
 		double pl = 1;//power of left motor (full power for fastest possible turn)
 		double pr = (dr/dl)*c;//power of right motor(directly proportional to ratio of distances)
+
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,pl*LEFT_FULL_POWER);
