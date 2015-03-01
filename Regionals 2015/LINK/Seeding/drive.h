@@ -3,7 +3,7 @@
 #define WHEEL_DIAMETER 4.4
 #define MOTOR_LEFT 1
 #define MOTOR_RIGHT 0
-#define LEFT_FULL_POWER 95
+#define LEFT_FULL_POWER 100
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
@@ -13,10 +13,8 @@
 #define CLAW_DOWN 778
 #define LS_LEFT 1
 #define LS_RIGHT 0
-#define BLACK_VALUE 400
+#define BLACK_VALUE 750
 #define PI 3.14159265359
-#define LS_WIDTH 6.4 //in cm
-#define BLACK_WIDTH 4.8 //in cm
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (860/(PI*WHEEL_DIAMETER))
@@ -35,4 +33,3 @@ void driveUntilLine(float speed);
 void turnRight(float degrees/*, float radius*/);
 void turnLeft(float degrees/*, float radius*/);
 void squareUp(float speed,float time);
-void backwardLineFollow(float distance, float speed);
