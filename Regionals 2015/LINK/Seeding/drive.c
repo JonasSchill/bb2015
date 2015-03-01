@@ -88,23 +88,19 @@
 		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //forward half power
 		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
 		ao();
-		msleep(300);
+		msleep(500);
 		if (analog(LS_LEFT) > BLACK_VALUE) //checking which sensor saw black first
 		{
 			motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //turn to straighten on line
+			motor(MOTOR_LEFT, -20);
 			while (analog(LS_RIGHT) < BLACK_VALUE) {}
-			ao();
-			motor(MOTOR_LEFT, -35);
-			while (analog(LS_LEFT) > BLACK_VALUE) {}
 			ao();
 		}
 		if (analog(LS_RIGHT) > BLACK_VALUE) 
 		{
 			motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
+			motor(MOTOR_RIGHT, -20);
 			while (analog(LS_LEFT) < BLACK_VALUE) {}
-			ao();
-			motor(MOTOR_RIGHT, -35);
-			while (analog(LS_RIGHT) > BLACK_VALUE) {}
 			ao();
 		}
 	}
@@ -136,8 +132,6 @@
 		@param radius : The radius of the arc the robot will travel in (in cm)
 		@param speed : The speed is a number between 0 and 1
 	*/
-
-
 	void turnRight(float degrees/*, float radius*/) {
 		/*double c = 1;//tuning constant
 		double da = 14.3;//distance between middle of wheels on the link
@@ -145,7 +139,6 @@
 		double dr = (degrees/360)*2*PI*(radius-da);//distance right wheel has to travel in the turn
 		double pl = 1;//power of left motor (full power for fastest possible turn)
 		double pr = (dr/dl)*c;//power of right motor(directly proportional to ratio of distances)
-
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,pl*LEFT_FULL_POWER);
@@ -159,7 +152,7 @@
 			//}
 		}
 		ao();*/
-		double c = 1.015;//tuning constant
+		double c = 1.0;//tuning constant
 		double radius = 14.3;
 		double dl = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
@@ -194,13 +187,3 @@
 		motor(MOTOR_LEFT,speed*-1*RIGHT_FULL_POWER);
 		msleep(time*1000);
 	}
-	
-	void backwardLineFollow(float distance, float speed) {
-		motor(MOTOR_LEFT, -speed*LEFT_FULL_POWER/2);
-		motor(MOTOR_RIGHT, -speed*RIGHT_FULL_POWER/2); //forward half power
-		clear_motor_position_counter(MOTOR_LEFT);
-		clear_motor_position_counter(MOTOR_RIGHT);
-		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
-		ao();
-		//while( << to finish
-		}
