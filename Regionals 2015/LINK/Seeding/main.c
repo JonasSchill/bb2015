@@ -1,5 +1,5 @@
 #include "template.h"
 
 int main() {
-	turnRight(1440);
+	driveForward(40, 1);
 }
