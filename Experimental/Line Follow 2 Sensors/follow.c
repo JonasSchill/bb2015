@@ -1,5 +1,7 @@
 // Created on Sat February 7 2015
 
+#define benchmark 800
+
 int main()
 {
 	while(1) {
