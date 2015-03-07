@@ -10,7 +10,7 @@
 #define CLAW_OPEN 1050
 #define CLAW_CLOSED 1600
 #define CLAW_UP 300
-#define CLAW_DOWN 778
+#define CLAW_DOWN 750
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define BLACK_VALUE 750
