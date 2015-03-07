@@ -1,5 +1,6 @@
 #include "template.h"
 
 int main() {
-	driveForward(40, 1);
+	enableAllServos();
+	turnRight(1440);
 }

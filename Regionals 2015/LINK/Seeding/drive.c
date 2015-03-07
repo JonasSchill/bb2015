@@ -152,8 +152,8 @@
 			//}
 		}
 		ao();*/
-		double c = 1.114;//tuning constant
-		double radius = 14.3;
+		double c = 1.0181;//tuning constant
+		double radius = 14.6;
 		double dl = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
