@@ -1,6 +1,7 @@
 #include "template.h"
 
 int main() {
+<<<<<<< HEAD
 	enableAllServos();
 	raiseClaw();
 	msleep(500);
