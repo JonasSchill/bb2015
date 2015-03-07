@@ -83,7 +83,8 @@
 		@param distance : The distance is measured in cm
 		@param speed : The speed is a number between 0 and 1
 	*/
-	void driveUntilLine(float speed) {
+	
+	void driveUntilLine(float speed) { //TO EDIT 
 		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
 		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //forward half power
 		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
@@ -92,14 +93,36 @@
 		if (analog(LS_LEFT) > BLACK_VALUE) //checking which sensor saw black first
 		{
 			motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //turn to straighten on line
-			motor(MOTOR_LEFT, -20);
+			motor(MOTOR_LEFT, -15);
 			while (analog(LS_RIGHT) < BLACK_VALUE) {}
 			ao();
 		}
 		if (analog(LS_RIGHT) > BLACK_VALUE) 
 		{
 			motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
-			motor(MOTOR_RIGHT, -20);
+			motor(MOTOR_RIGHT, -15);
+			while (analog(LS_LEFT) < BLACK_VALUE) {}
+			ao();
+		}
+	}
+	
+	void driveUntilTape(float speed) {
+		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
+		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //forward half power
+		while (analog(LS_LEFT) < BLACK_VALUE && analog(LS_RIGHT) < BLACK_VALUE) {} //until one sees black
+		ao();
+		msleep(500);
+		if (analog(LS_LEFT) > BLACK_VALUE) //checking which sensor saw black first
+		{
+			motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER/2); //turn to straighten on line
+			motor(MOTOR_LEFT, -25);
+			while (analog(LS_RIGHT) < BLACK_VALUE) {}
+			ao();
+		}
+		if (analog(LS_RIGHT) > BLACK_VALUE) 
+		{
+			motor(MOTOR_LEFT, speed*LEFT_FULL_POWER/2);
+			motor(MOTOR_RIGHT, -25);
 			while (analog(LS_LEFT) < BLACK_VALUE) {}
 			ao();
 		}

@@ -7,8 +7,8 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 1050
-#define CLAW_CLOSED 1600
+#define CLAW_OPEN 1100
+#define CLAW_CLOSED 1670
 #define CLAW_UP 300
 #define CLAW_DOWN 778
 #define LS_LEFT 1
@@ -29,6 +29,7 @@ void closeClaw();
 //drive actions
 void driveForward(float distance, float speed);
 void driveBackward(float distance, float speed);
+void driveUntilTape(float speed);
 void driveUntilLine(float speed);
 void turnRight(float degrees/*, float radius*/);
 void turnLeft(float degrees/*, float radius*/);
