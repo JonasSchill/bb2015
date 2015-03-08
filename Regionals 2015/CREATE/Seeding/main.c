@@ -17,3 +17,18 @@ void dumpSequence() {
 	createTurnLeft(15);
 	createDriveBack(100,50);
 }
+
+void pingpongsequence(){
+	enableDevices();
+	raiseLowerArmNew (530);
+	createDriveBack (100, 7);
+	createTurnLeft (90);
+	createDrive (100,30);
+	createTurnRight (90);
+	raiseLowerArmNew(800);
+	createDriveBack (100, 7);
+	createTurnLeft (90);
+	createDrive (100,30);
+	createTurnRight (90);
+	raiseLowerArmNew(1200);
+}
