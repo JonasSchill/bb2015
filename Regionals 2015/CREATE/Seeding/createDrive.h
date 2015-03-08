@@ -17,6 +17,7 @@ void raiseLowerArmNew (int destination);
 void createBasketDump ();
 void createBasketReturn ();
 void enableServos ();
+void creatDriveRaise(); 
 
 //create drive functions
 void createDrive (float speed, float distance);
