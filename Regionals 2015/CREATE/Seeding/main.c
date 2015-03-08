@@ -6,12 +6,6 @@ int main() {
 	
 }
 
-	
-void create_Main() {
-	//msleep(15000); //wait for LINK blocks dump
-	createTurnLeft(90);
-}
-
 void dumpSequence() {
 	enableDevices();
 	raiseLowerArmNew(1300);
