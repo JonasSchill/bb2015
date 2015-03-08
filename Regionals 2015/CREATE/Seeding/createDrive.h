@@ -13,15 +13,6 @@
 #define ARM_HIGH 1200
 
 //create arm functions
-void raiseLowerArmNew (int destination) {}
-void createBasketDump () {}
-void createBasketReturn () {}
-void enableServos () {}
-
-//create drive functions
-void createDrive (float speed, float distance) {}
-void createTurnLeft (int degrees) {}
-void createTurnRight (int degrees) {}
 void raiseLowerArmNew (int destination);
 void createBasketDump ();
 void createBasketReturn ();

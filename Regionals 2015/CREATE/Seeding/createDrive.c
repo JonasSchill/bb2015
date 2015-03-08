@@ -22,7 +22,7 @@ void createDriveRaise(int distance, int destination) {
 	int offset = 200;
 	set_servo_position(SERVO_UP_DOWN_LEFT, 500 + destination - offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
-	while (get_create_drive_distance*10 <= distance){}
+	while (get_create_distance()*10 <= distance){}
 	create_stop(0);
 }
 	
