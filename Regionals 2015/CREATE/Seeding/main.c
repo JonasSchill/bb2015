@@ -3,7 +3,9 @@
 //main file gets run by robot calls methods in all other files
 
 int main() {
-	
+	enable_servos();
+	raiseLowerArmNew(1300);
+	msleep(2000);
 }
 
 	
