@@ -4,8 +4,9 @@
 
 int main() {
 	create_connect();
-	
-	create_dissconnect();
+	enable_servos();
+	createDriveRaise(5, 800);
+	create_disconnect();
 }
 
 void create_Main() {
