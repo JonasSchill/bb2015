@@ -4,9 +4,13 @@
 
 int main() {
 	enableDevices();
-	raiseLowerArmNew(1200);
+	raiseLowerArmNew(ARM_DEFAULT);
+	createDriveBack(100, 10);
+	msleep(3000);
+	/*raiseLowerArmNew(1200);
 	msleep(2000);
 	createSquareUp(100,8);
+	createDriveBack (-100,10);
 	create_stop();
 	createBasketDump();
 	msleep(2000);
@@ -14,7 +18,7 @@ int main() {
 	msleep(2000);
 	enable_servos();
 	raiseLowerArmNew(1300);
-	msleep(2000);
+	msleep(2000);*/
 }
 
 	

@@ -25,6 +25,15 @@ void createDrive (float speed, float distance) {
 	set_create_distance(0);
 }
 
+void createDriveBack (float speed, float distance) {
+	set_create_distance(distance*10);
+	create_drive_straight(speed);
+	while (get_create_distance()*10 <= 0){
+	}
+	create_stop();
+	set_create_distance(0);
+}
+
 void createTurnLeft(int degrees) {
 	set_create_normalized_angle(0); //Reset the angle
 	create_spin_CCW(250); //Spin at half power
