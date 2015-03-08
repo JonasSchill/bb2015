@@ -19,19 +19,15 @@ void raiseLowerArmNew(int destination) {
 void createDrive (float speed, float distance) {
 	set_create_distance(distance*10);
 	create_drive_straight(-speed);
-	while (get_create_distance()*10 >= 0){
-	}
+	while (get_create_distance()*10 >= 0){}
 	create_stop();
-	set_create_distance(0);
 }
 
 void createDriveBack (float speed, float distance) {
-	set_create_distance(distance*10);
-	create_drive_straight(speed);
-	while (get_create_distance()*10 <= 0){
-	}
-	create_stop();
 	set_create_distance(0);
+	create_drive_straight(speed);
+	while (get_create_distance()/10 <= distance){}
+	create_stop();
 }
 
 void createTurnLeft(int degrees) {
@@ -54,15 +50,19 @@ void createTurnRight(int degrees) {
 
 void createBasketDump(){
 	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
-}
-
-void createBasketReturn(){
+	msleep(750);
+	set_servo_position(SERVO_BASKET, 1200);
+	msleep(250);
+	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
+	msleep(250);
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+	msleep(750);
 }
 
 void createSquareUp(float speed,float time){
 	create_drive_direct(-1*speed,-1*speed);
 	msleep(time*1000);
+	create_stop();
 }
 
 void enableDevices() {
