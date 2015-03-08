@@ -7,24 +7,25 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 950
-#define CLAW_CLOSED 0
-#define CLAW_UP 0
+#define CLAW_OPEN CLAW_CLOSED+950
 #define CLAW_DOWN 800
-#define CLAW_OPEN_READY 690
-#define CLAW_UP_READY 330
+#define CLAW_OPEN_READY CLAW_CLOSED+600
+#define CLAW_UP_READY CLAW_CLOSED+250
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define TAPE_VALUE 880
 #define PI 3.14159265359
+#define BLOCK_GRAB CLAW_CLOSED+120
 
-//drive tuning constants
+//tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
 #define DrFRC 96.5/RIGHT_FULL_POWER
 #define DrBRC 97/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
 #define Rt 1.01 
-#define Rl 1
+#define Rl 1.01
+#define CLAW_CLOSED 0
+#define CLAW_UP 0
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))
@@ -32,6 +33,7 @@
 //claw actions
 void enableAllServos();
 void raiseClaw();
+void raiseClawReady();
 void lowerClaw();
 void openClaw();
 void closeClaw();
