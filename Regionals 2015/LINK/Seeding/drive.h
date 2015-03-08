@@ -7,8 +7,8 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 1300
-#define CLAW_CLOSED 1850
+#define CLAW_OPEN 1400
+#define CLAW_CLOSED 1820
 #define CLAW_UP 50
 #define CLAW_DOWN 800
 #define CLAW_READY 
@@ -16,8 +16,9 @@
 #define LS_RIGHT 0
 #define TAPE_VALUE 880
 #define PI 3.14159265359
-#define DrFRC 97/LEFT_FULL_POWER
-#define DrBRC 97/RIGHT_FULL_POWER
+#define DrFLC 98/LEFT_FULL_POWER
+#define DrBRC 100/RIGHT_FULL_POWER
+#define DrBLC 100/LEFT_FULL_POWER
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))
