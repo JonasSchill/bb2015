@@ -1,6 +1,6 @@
 #include "createDrive.h"
 
-void raiseArmNew(int destination) {
+void raiseLowerArmNew(int destination) {
 	/*-----------------------------------------------\
 	| If looking at the Link screen right side up... |
 	| Servo 0 is the left one						 |
@@ -13,4 +13,4 @@ void raiseArmNew(int destination) {
 	int offset = 200;
 	set_servo_position(SERVO_UP_DOWN_LEFT, 500 + destination - offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
-}	
+}
