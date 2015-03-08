@@ -16,11 +16,21 @@ void raiseLowerArmNew(int destination) {
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
 }
 
+void createDriveRaise(int distance, int destination) {
+	set_create_distance(0);
+	create_drive_direct(25,25);
+	int offset = 200;
+	set_servo_position(SERVO_UP_DOWN_LEFT, 500 + destination - offset);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
+	while (get_create_drive_distance*10 <= distance){}
+	create_stop(0);
+}
+	
 
 void createDrive (float speed, float distance) {
 	set_create_distance(0);
 	create_drive_direct(speed,speed);
-	while (get_create_drive_distance*10 <= distance){
+	while (get_create_distance()*10 <= distance){
 	}
 	create_stop();
 	set_create_distance(0);
