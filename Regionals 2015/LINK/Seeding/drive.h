@@ -7,8 +7,8 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 1400
-#define CLAW_CLOSED 1820
+#define CLAW_OPEN 1800
+#define CLAW_CLOSED 950
 #define CLAW_UP 50
 #define CLAW_DOWN 800
 #define CLAW_READY 
