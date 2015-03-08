@@ -1,5 +1,6 @@
 #include "createDrive.h"
 
+
 void raiseLowerArmNew(int destination) {
 	/*-----------------------------------------------\
 	| If looking at the Link screen right side up... |
@@ -13,6 +14,16 @@ void raiseLowerArmNew(int destination) {
 	int offset = 200;
 	set_servo_position(SERVO_UP_DOWN_LEFT, 500 + destination - offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
+}
+
+
+void createDrive (float speed, float distance) {
+	set_create_distance(0);
+	create_drive_direct(speed,speed);
+	while (get_create_drive_distance*10 <= distance){
+	}
+	create_stop();
+	set_create_distance(0);
 }
 
 void createTurnLeft(int degrees) {
@@ -32,3 +43,21 @@ void createTurnRight(int degrees) {
 	while(get_create_normalized_angle() > 0) {} //and finish the turn
 	create_stop();
 }
+
+void createBasketDump(){
+	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
+}
+
+void createBasketReturn(){
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+}
+
+void createSquareUp(float speed,float time){
+	create_drive_direct(-1*speed,-1*speed);
+	msleep(time*1000);
+}
+
+
+
+
+
