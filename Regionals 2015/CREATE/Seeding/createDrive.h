@@ -13,7 +13,6 @@
 #define ARM_HIGH 1200
 
 //create arm functions
-<<<<<<< HEAD
 void raiseLowerArmNew (int destination) {}
 void createBasketDump () {}
 void createBasketReturn () {}
@@ -23,7 +22,6 @@ void enableServos () {}
 void createDrive (float speed, float distance) {}
 void createTurnLeft (int degrees) {}
 void createTurnRight (int degrees) {}
-=======
 void raiseLowerArmNew (int destination);
 void createBasketDump ();
 void createBasketReturn ();
@@ -36,4 +34,3 @@ void createTurnRight (int degrees);
 
 //create main
 void create_Main();
->>>>>>> 5d2675cda4b393576816736a9748bb749f1d1069
