@@ -8,7 +8,15 @@
 #define BASKET_DUMPED 1250
 #define BASKET_RETURNED 400
 
+//create arm functions
 void raiseLowerArmNew (float destination) {}
+void createBasketDump () {}
+void createBasketReturn () {}
+
+//create drive functions
 void createDrive (float speed, float distance) {}
 void createTurnLeft (int degrees) {}
 void createTurnRight (int degrees) {}
+
+//create main
+void create_Main() {}
