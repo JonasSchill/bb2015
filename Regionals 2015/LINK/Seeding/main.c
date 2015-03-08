@@ -10,24 +10,28 @@ int main() {
 void LINK_main() {
 	
 	enableAllServos();
-	raiseClaw();
-	closeClaw();
 	squareUp(0.5, 1);
-	msleep(1500);
-	
-	driveForward(100,1);
-	turnRight(90);
 	msleep(1000);
-	driveForward(30,1);
-	//driveUntilLine(1);
-	//msleep(500);
-	//driveBackward(1, 1);
-	msleep(1000);
-	turnRight(85);
-	msleep(2000);
 	
-	lowerClaw();
+	
+	driveForward(15,1);
+	closeClaw();
+	msleep(500);
+	turnLeft(90);
+	msleep(500);
+	driveForward(5,1);
+	raiseClaw();
+	msleep(500);
+	turnLeft(90);
+	msleep(500);
 	openClaw();
+	
+	turnLeft(-180);
+	driveForward(85, 1);
+	turnRight(90);
+	driveForward(35);
+	turnRight(90);
+	
 	driveForward(80, 1);
 	closeClaw();
 	raiseClaw();
