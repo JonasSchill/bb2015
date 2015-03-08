@@ -5,9 +5,11 @@
 int main() {
 	create_connect();
 	
-	create_dissconnect();
+	create_disconnect();
 }
 
 void create_Main() {
+	//msleep(15000); //wait for LINK blocks dump
+	createTurnLeft(90);
 	
 }
