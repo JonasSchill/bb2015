@@ -182,6 +182,7 @@
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,LEFT_FULL_POWER*(degrees/abs(degrees)));
 		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF){	
+			printf(get_motor_position_counter(MOTOR_LEFT));
 		}
 		ao();
 	}
@@ -201,6 +202,7 @@
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_RIGHT,RIGHT_FULL_POWER*(degrees/abs(degrees)));
 		while(get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){	
+			printf(get_motor_position_counter(MOTOR_RIGHT));
 		}
 		ao();
 	}
