@@ -196,7 +196,7 @@ void turnRight(float degrees/*, float radius*/) {
 void turnLeft(float degrees/*, float radius*/) {
 	int check = 0;
 	double radius = 14.3;
-	double dr = (degrees/360)*2*PI*radius*Rl;
+	double dr = (degrees/360)*2*PI*radius*Lt;
 	clear_motor_position_counter(MOTOR_LEFT);
 	clear_motor_position_counter(MOTOR_RIGHT);
 	motor(MOTOR_RIGHT,RIGHT_FULL_POWER);
