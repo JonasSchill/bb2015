@@ -41,7 +41,10 @@ void createBasketReturn(){
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 }
 
-
+void createSquareUp(float speed,float time){
+	create_drive_direct(-1*speed,-1*speed);
+	msleep(time*1000);
+}
 
 
 
