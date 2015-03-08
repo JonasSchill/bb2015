@@ -11,6 +11,6 @@ void raiseArmNew(int destination) {
 
 	//0 is ground, 520 is horizontal
 	int offset = 200;
-	set_servo_position(0, 500 + destination - offset);
-	set_servo_position(1, 1240 - destination + offset);
+	set_servo_position(SERVO_UP_DOWN_LEFT, 500 + destination - offset);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
 }	
