@@ -16,6 +16,7 @@ void raiseLowerArmNew(int destination) {
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 1240 - destination + offset);
 }
 
+
 void createDrive (float speed, float distance) {
 	set_create_distance(0);
 	create_drive_direct(speed,speed);
@@ -23,4 +24,11 @@ void createDrive (float speed, float distance) {
 	}
 	create_stop();
 	set_create_distance(0);
+
+void createTurnLeft(int degrees) {
+	set_create_normalized_angle(0);
+	create_spin_CCW(250);
+	while(get_create_normalized_angle() > 360 - degrees) {}
+	create_stop();
+
 }
