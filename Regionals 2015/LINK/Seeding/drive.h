@@ -19,9 +19,11 @@
 
 //drive tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
-#define DrFRC 98/RIGHT_FULL_POWER
-#define DrBRC 96/RIGHT_FULL_POWER
+#define DrFRC 96.5/RIGHT_FULL_POWER
+#define DrBRC 97/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
+#define Rt 1.01 
+#define Rl 1
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))
