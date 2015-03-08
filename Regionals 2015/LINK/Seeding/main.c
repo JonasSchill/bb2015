@@ -14,7 +14,7 @@ void LINK_main() {
 	msleep(1000);
 	
 	
-	driveForward(15,1);
+	driveForward(15, 1);
 	closeClaw();
 	msleep(500);
 	turnLeft(90);
@@ -29,7 +29,7 @@ void LINK_main() {
 	turnLeft(-180);
 	driveForward(85, 1);
 	turnRight(90);
-	driveForward(35);
+	driveForward(35, 1);
 	turnRight(90);
 	
 	driveForward(80, 1);

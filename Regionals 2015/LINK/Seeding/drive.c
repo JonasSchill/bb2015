@@ -12,7 +12,7 @@
 void enableAllServos() {
 	enable_servos();
 	set_servo_position(SERVO_UP_DOWN, CLAW_DOWN);
-	set_servo_position(SERVO_OPEN_CLOSE, CLAW_OPEN);
+	set_servo_position(SERVO_OPEN_CLOSE, CLAW_OPEN_READY);
 }
 
 void raiseClaw () {
