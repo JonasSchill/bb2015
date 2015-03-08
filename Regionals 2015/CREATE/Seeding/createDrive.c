@@ -30,7 +30,7 @@ void createDriveRaise(int distance, int destination) {
 void createDrive (float speed, float distance) {
 	set_create_distance(0);
 	create_drive_direct(speed,speed);
-	while (get_create_drive_distance*10 <= distance){
+	while (get_create_distance()*10 <= distance){
 	}
 	create_stop();
 	set_create_distance(0);
