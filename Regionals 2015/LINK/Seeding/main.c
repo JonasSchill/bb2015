@@ -9,17 +9,18 @@ int main() {
 	
 	driveForward(103.34,1);
 	turnRight(90);
-	driveForward(40.5,1);
-	turnRight(90);
+	driveForward(30,1);
+	turnRight(92);
 	
 	lowerClaw();
 	openClaw();
 	driveForward(80, 1);
 	closeClaw();
 	raiseClaw();
-	driveBackward(80, 1);
+	driveForward(25, 0.8);
 	
-	turnRight(-90);
+	driveBackward(80, 1);
+	turnRight(-90); //work on 
 	turnLeft(90);
 	
 	lowerClaw();
@@ -29,7 +30,7 @@ int main() {
 	raiseClaw();
 	driveBackward(80, 1);
 	
-	turnLeft(90);
+	turnLeft(-90); //work on 
 	driveBackward(40, 1);
 	turnRight(90);
 	driveForward(103, 1);

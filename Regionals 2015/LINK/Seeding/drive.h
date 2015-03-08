@@ -3,14 +3,15 @@
 #define WHEEL_DIAMETER 4.4
 #define MOTOR_LEFT 1
 #define MOTOR_RIGHT 0
-#define LEFT_FULL_POWER 97
+#define LEFT_FULL_POWER 95
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 1100
-#define CLAW_CLOSED 1670
-#define CLAW_UP 300
-#define CLAW_DOWN 750
+#define CLAW_OPEN 1400
+#define CLAW_CLOSED 1850
+#define CLAW_UP 50
+#define CLAW_DOWN 800
+#define CLAW_READY 
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define TAPE_VALUE 750

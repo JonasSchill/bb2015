@@ -180,7 +180,7 @@
 		double dl = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
-		motor(MOTOR_LEFT,LEFT_FULL_POWER);
+		motor(MOTOR_LEFT,LEFT_FULL_POWER*(degrees/abs(degrees)));
 		while(get_motor_position_counter(MOTOR_LEFT)<dl*CMTOBEMF){	
 		}
 		ao();
@@ -199,7 +199,7 @@
 		double dr = (degrees/360)*2*PI*radius*c;
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
-		motor(MOTOR_RIGHT,RIGHT_FULL_POWER);
+		motor(MOTOR_RIGHT,RIGHT_FULL_POWER*(degrees/abs(degrees)));
 		while(get_motor_position_counter(MOTOR_RIGHT)<dr*CMTOBEMF){	
 		}
 		ao();
