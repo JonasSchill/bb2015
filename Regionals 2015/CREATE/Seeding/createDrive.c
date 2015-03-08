@@ -16,8 +16,19 @@ void raiseLowerArmNew(int destination) {
 }
 
 void createTurnLeft(int degrees) {
-	set_create_normalized_angle(0);
-	create_spin_CCW(250);
-	while(get_create_normalized_angle() > 360 - degrees) {}
+	set_create_normalized_angle(0); //Reset the angle
+	create_spin_CCW(250); //Spin at half power
+	while(get_create_normalized_angle() < degrees - 20) {} //go most of the distance
+	create_spin_CCW(50); //slow down as to not overshoot
+	while(get_create_normalized_angle() < degrees) {} //and finish the turn
+	create_stop();
+}
+
+void createTurnRight(int degrees) {
+	set_create_normalized_angle(degrees); //Reset the angle
+	create_spin_CW(250); //Spin at half power
+	while(get_create_normalized_angle() > 20) {} //go most of the distance
+	create_spin_CW(50); //slow down as to not overshoot
+	while(get_create_normalized_angle() > 0) {} //and finish the turn
 	create_stop();
 }
