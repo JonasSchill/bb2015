@@ -21,7 +21,6 @@ void enableServos ();
 //create drive functions
 void createDrive (float speed, float distance);
 void createTurnLeft (int degrees);
-void createDriveRaise(int distance, int destination);
 void createTurnRight (int degrees);
 
 //create main
