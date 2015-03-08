@@ -56,11 +56,9 @@ void createSquareUp(float speed,float time){
 	msleep(time*1000);
 }
 
-void enableServos() {
+void enableDevices() {
 	enable_servos();
-	raiseLowerArmNew(ARM_DEFAULT);
 	create_connect();
-	msleep(1500);
 }
 
 

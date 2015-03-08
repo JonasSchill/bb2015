@@ -16,13 +16,14 @@
 void raiseLowerArmNew (int destination);
 void createBasketDump ();
 void createBasketReturn ();
-void enableServos ();
+void enableDevices ();
 void creatDriveRaise(); 
 
 //create drive functions
 void createDrive (float speed, float distance);
 void createTurnLeft (int degrees);
 void createTurnRight (int degrees);
+void createSquareUp(float speed,float time);
 
 //create main
 void create_Main();
