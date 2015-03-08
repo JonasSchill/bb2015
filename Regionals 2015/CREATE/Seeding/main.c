@@ -4,7 +4,7 @@
 
 int main() {
 	create_connect();
-	enable_servos();
+	createDrive(50, 0);
 	create_disconnect();
 	
 }
