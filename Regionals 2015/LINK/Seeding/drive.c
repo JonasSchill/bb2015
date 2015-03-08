@@ -12,23 +12,33 @@
 void enableAllServos() {
 	enable_servos();
 	set_servo_position(SERVO_UP_DOWN, CLAW_DOWN);
-	set_servo_position(SERVO_OPEN_CLOSE, CLAW_OPEN_READY);
+	set_servo_position(SERVO_OPEN_CLOSE, BLOCK_GRAB);
+	msleep(500);
 }
 
 void raiseClaw () {
 	set_servo_position(SERVO_UP_DOWN,CLAW_UP);
+	msleep(500);
+}
+
+void raiseClawReady () {
+	set_servo_position(SERVO_UP_DOWN, CLAW_UP_READY);
+	msleep(500);
 }
 
 void lowerClaw () {
 	set_servo_position(SERVO_UP_DOWN,CLAW_DOWN);
+	msleep(500);
 }
 
 void openClaw () {
 	set_servo_position(SERVO_OPEN_CLOSE,CLAW_OPEN);
+	msleep(500);
 }
 
 void closeClaw () {
 	set_servo_position(SERVO_OPEN_CLOSE,CLAW_CLOSED);
+	msleep(500);
 }
 
 void dumpClaw () {

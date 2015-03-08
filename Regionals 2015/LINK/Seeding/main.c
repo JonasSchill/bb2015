@@ -2,9 +2,6 @@
 
 int main() {
 	LINK_main();
-	/*enable_servos();
-	raiseClaw();
-	driveBackward(40, 1);*/
 }
 
 void LINK_main() {
@@ -13,21 +10,17 @@ void LINK_main() {
 	squareUp(0.5, 1);
 	msleep(1000);
 	
-	
-	driveForward(15, 1);
-	closeClaw();
-	msleep(500);
+ 	raiseClaw();
+	driveForward(30, 1);
 	turnLeft(90);
+	driveForward(7,1);
+	turnLeft(85);
 	msleep(500);
-	driveForward(5,1);
-	raiseClaw();
-	msleep(500);
-	turnLeft(90);
-	msleep(500);
+	raiseClawReady();
 	openClaw();
 	
-	turnLeft(-180);
-	driveForward(85, 1);
+	turnLeft(-160);
+	driveForward(60, 1);
 	turnRight(90);
 	driveForward(35, 1);
 	turnRight(90);
