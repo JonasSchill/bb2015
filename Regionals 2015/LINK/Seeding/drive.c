@@ -53,10 +53,10 @@
 	void driveForward(float distance, float speed) {
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
-		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER);
+		motor(MOTOR_LEFT, speed*LEFT_FULL_POWER*DrFRC);
 		motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER);
 		while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {}
-		printf("%d", get_motor_position_counter(MOTOR_LEFT));
+		printf("%d\n", get_motor_position_counter(MOTOR_LEFT));
 		ao();
 	}
 	
@@ -70,7 +70,7 @@
 		clear_motor_position_counter(MOTOR_LEFT);
 		clear_motor_position_counter(MOTOR_RIGHT);
 		motor(MOTOR_LEFT,-speed*LEFT_FULL_POWER);
-		motor(MOTOR_RIGHT,-speed*RIGHT_FULL_POWER);
+		motor(MOTOR_RIGHT,-speed*RIGHT_FULL_POWER*DrBRC);
 		while(get_motor_position_counter(MOTOR_LEFT)>-distance*CMTOBEMF && get_motor_position_counter(MOTOR_RIGHT)>-distance*CMTOBEMF){
 		}
 		ao();
@@ -211,4 +211,46 @@
 		motor(MOTOR_RIGHT,speed*-1*LEFT_FULL_POWER);
 		motor(MOTOR_LEFT,speed*-1*RIGHT_FULL_POWER);
 		msleep(time*1000);
+	}
+	
+	void LINK_main() {
+			
+	enableAllServos();
+	raiseClaw();
+	closeClaw();
+	msleep(1500);
+	
+	driveForward(100,1);
+	turnRight(90);
+	msleep(1000);
+	driveForward(17,1);
+	driveUntilTape(1);
+	msleep(1000);
+	driveBackward(1.5, 1);
+	msleep(1000);
+	turnRight(78);
+	msleep(2000);
+	
+	lowerClaw();
+	openClaw();
+	driveForward(80, 1);
+	closeClaw();
+	raiseClaw();
+	squareUp(-0.8, 5);
+	
+	driveBackward(100, 1);
+	turnRight(-90); //work on 
+	turnLeft(90);
+	
+	lowerClaw();
+	openClaw();
+	driveForward(80, 1);
+	closeClaw();
+	raiseClaw();
+	driveBackward(80, 1);
+	
+	turnLeft(-90); //work on 
+	driveBackward(40, 1);
+	turnRight(90);
+	driveForward(103, 1);
 	}

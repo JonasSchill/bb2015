@@ -7,15 +7,17 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-#define CLAW_OPEN 1400
+#define CLAW_OPEN 1300
 #define CLAW_CLOSED 1850
 #define CLAW_UP 50
 #define CLAW_DOWN 800
 #define CLAW_READY 
 #define LS_LEFT 1
 #define LS_RIGHT 0
-#define TAPE_VALUE 750
+#define TAPE_VALUE 880
 #define PI 3.14159265359
+#define DrFRC 97/LEFT_FULL_POWER
+#define DrBRC 97/RIGHT_FULL_POWER
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))
@@ -35,3 +37,7 @@ void driveUntilLine(float speed);
 void turnRight(float degrees/*, float radius*/);
 void turnLeft(float degrees/*, float radius*/);
 void squareUp(float speed,float time);
+
+//main
+
+void LINK_main();
