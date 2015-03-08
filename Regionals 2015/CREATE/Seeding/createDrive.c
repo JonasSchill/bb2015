@@ -24,11 +24,26 @@ void createDrive (float speed, float distance) {
 	}
 	create_stop();
 	set_create_distance(0);
+}
 
 void createTurnLeft(int degrees) {
 	set_create_normalized_angle(0);
 	create_spin_CCW(250);
 	while(get_create_normalized_angle() > 360 - degrees) {}
 	create_stop();
-
 }
+
+void createBasketDump(){
+	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
+}
+
+void createBasketReturn(){
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+}
+
+
+
+
+
+
+
