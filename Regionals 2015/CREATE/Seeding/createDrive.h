@@ -7,11 +7,16 @@
 #define SERVO_BASKET 3
 #define BASKET_DUMPED 1250
 #define BASKET_RETURNED 400
+#define ARM_DEFAULT 320
+#define ARM_LOW 530
+#define ARM_MEDIUM 800
+#define ARM_HIGH 1200
 
 //create arm functions
 void raiseLowerArmNew (float destination) {}
 void createBasketDump () {}
 void createBasketReturn () {}
+void enableServos () {}
 
 //create drive functions
 void createDrive (float speed, float distance) {}

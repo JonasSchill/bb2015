@@ -30,25 +30,27 @@ void createDriveRaise(int distance, int destination) {
 void createDrive (float speed, float distance) {
 	set_create_distance(0);
 	create_drive_direct(speed,speed);
-	while (get_create_drive_distance*10 <= distance){}
+	while (get_create_drive_distance*10 <= distance){
+	}
 	create_stop();
+	set_create_distance(0);
 }
 
 void createTurnLeft(int degrees) {
 	set_create_normalized_angle(0); //Reset the angle
 	create_spin_CCW(250); //Spin at half power
-	while(get_create_normalized_angle() <= degrees - 20) {} //go most of the distance
+	while(get_create_normalized_angle() < degrees - 20) {} //go most of the distance
 	create_spin_CCW(50); //slow down as to not overshoot
-	while(get_create_normalized_angle() <= degrees) {} //and finish the turn
+	while(get_create_normalized_angle() < degrees) {} //and finish the turn
 	create_stop();
 }
 
 void createTurnRight(int degrees) {
 	set_create_normalized_angle(degrees); //Reset the angle
 	create_spin_CW(250); //Spin at half power
-	while(get_create_normalized_angle() >= 20) {} //go most of the distance
+	while(get_create_normalized_angle() > 20) {} //go most of the distance
 	create_spin_CW(50); //slow down as to not overshoot
-	while(get_create_normalized_angle() >= 0) {} //and finish the turn
+	while(get_create_normalized_angle() > 0) {} //and finish the turn
 	create_stop();
 }
 
@@ -65,6 +67,12 @@ void createSquareUp(float speed,float time){
 	msleep(time*1000);
 }
 
+void enableServos() {
+	enable_servos();
+	raiseLowerArmNew(ARM_DEFAULT);
+	create_connect();
+	msleep(1500);
+}
 
 
 
