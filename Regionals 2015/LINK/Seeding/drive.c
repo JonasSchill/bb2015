@@ -54,7 +54,7 @@ void driveForward(float distance, float speed) {
 	clear_motor_position_counter(MOTOR_LEFT);
 	clear_motor_position_counter(MOTOR_RIGHT);
 	motor(MOTOR_LEFT, speed*LEFT_FULL_POWER*DrFLC);
-	motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER);
+	motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER*DrFRC);
 	while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {}
 	printf("%d\n", get_motor_position_counter(MOTOR_LEFT));
 	ao();
@@ -177,7 +177,7 @@ void turnRight(float degrees/*, float radius*/) {
 	ao();*/
 	int check = 0;
 	double radius = 14.3;
-	double c = 1.02;//tuning constant
+	double c = 1.015;//tuning constant
 	double dr = (degrees/360)*2*PI*radius*c;
 	clear_motor_position_counter(MOTOR_LEFT);
 	clear_motor_position_counter(MOTOR_RIGHT);
