@@ -21,7 +21,7 @@
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define TAPE_VALUE 880
-#define PI 3.14159265359
+#define PI 3.141592653589793236482
 #define BLOCK_GRAB CLAW_CLOSED+120
 
 //tuning constants
@@ -29,8 +29,8 @@
 #define DrFRC 96.5/RIGHT_FULL_POWER
 #define DrBRC 96/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
-#define Rt 1.01 
-#define Lt 1.015
+#define Rt 1.02 
+#define Lt 1.02
 #define CLAW_CLOSED 0
 #define CLAW_UP 0
 
