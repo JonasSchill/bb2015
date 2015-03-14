@@ -12,33 +12,18 @@ void dumpSequence() {
 	createBasketDump();
 	createTurnLeft(15);
 	createDriveBack(100,50);
+	raiseLowerArmNew(320);
 }
 
-void pingpongsequence() {
-	enableDevices();	//enables devices
-	raiseLowerArmNew (300);		//drives with raised arm
+void pingPongCollect() { //This is being programmed for the actual competion now
+	raiseLowerArmNew(700);		//drives with raised arm
+	msleep(500);
+	createDrive(100, 25);
+	raiseLowerArmNew(900);
 	msleep(1000);
-	createDrive (100, 21);
-	raiseLowerArmNew (780);		//picks up front ping pong
-	msleep(1500);
-	createSquareUp(100,3.6);	//gets in pos. for next ping pong
-	raiseLowerArmNew (1240);	//picks up next ping pong
-	msleep(1500);
-	createSquareUp (100,1.5);	
-	raiseLowerArmNew (1690);
-	msleep(1000);
-	createDriveBack (100,9);	//gets in pos. for next ping pong
-	createTurnLeft (15);
-	/*
-	createDrive(100,8);			//picks up next one
-	raiseLowerArmNew(800);
-	createDriveBack (100,7);	//gets in pos. for next one
-	createTurnLeft (15);
-	createDrive (100,21);
-	raiseLowerArmNew(1000);		//picks up next one
-	*/
 }
 
 int main() {
-	dumpSequence();
+	enableDevices();
+	pingPongCollect();
 }
