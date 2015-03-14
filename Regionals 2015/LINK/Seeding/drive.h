@@ -7,17 +7,10 @@
 #define RIGHT_FULL_POWER 100
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
-<<<<<<< Updated upstream
 #define CLAW_OPEN CLAW_CLOSED+950
 #define CLAW_DOWN CLAW_UP+800
 #define CLAW_OPEN_READY CLAW_CLOSED+600
 #define CLAW_UP_READY CLAW_CLOSED+250
-=======
-#define CLAW_OPEN 1100
-#define CLAW_CLOSED 1670
-#define CLAW_UP 300
-#define CLAW_DOWN 750
->>>>>>> Stashed changes
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define TAPE_VALUE 880

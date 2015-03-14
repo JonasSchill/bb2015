@@ -1,7 +1,15 @@
 #include "template.h"
 
 int main() {
-	LINK_main();
+	//LINK_main();
+	
+	/*turnLeft(-90);
+	squareUp(1, 2);
+	msleep(500);*/
+	squareUp(1, 2);
+	turnRight(90);
+	/*msleep(500);
+	driveForward(55,1);*/
 	
 }
 
@@ -9,7 +17,6 @@ void LINK_main() {
 	
 	//start up
 	enableAllServos();
-	//squareUp(0.5, 1);
 	msleep(300);
 	
 	//blocks to basket
@@ -28,7 +35,7 @@ void LINK_main() {
 	closeClaw();
 	driveForward(65, 1);
 	turnRight(95); //bump turn
-	driveForward(25, 1);
+	driveForward(26, 1);
 	turnRight(103); //bumpy turn
 	
 	//drive down first alley for tribbles
@@ -36,20 +43,19 @@ void LINK_main() {
 	lowerClaw();
 	driveForward(90, 1);
 	closeClaw();
+	driveBackward(4, 1);
 	raiseClaw();
-	squareUp(-0.8, 5);
-	msleep(100);
 	
-	//back out of close alley
-	driveBackward(105, 1);
-	turnRight(-90); //work on 
-	msleep(200);
-	turnLeft(90);
-	
-	//down second alley
+	//turn around down other alley
+	turnLeft(-90);
+	squareUp(1, 2);
+	msleep(500);
+	turnRight(90);
+	msleep(500);
+	driveForward(55,1);
 	lowerClaw();
 	openClaw();
-	driveForward(80, 1);
+	driveForward(110, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
