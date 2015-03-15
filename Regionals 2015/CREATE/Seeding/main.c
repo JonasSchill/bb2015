@@ -16,11 +16,20 @@ void dumpSequence() {
 }
 
 void pingPongCollect() { //This is being programmed for the actual competion now
-	raiseLowerArmNew(700);		//drives with raised arm
-	msleep(500);
+	raiseLowerArmNew(ARM_HIGH - 200);		//drives with raised arm
 	createDrive(100, 25);
-	raiseLowerArmNew(900);
-	msleep(1000);
+	raiseLowerArmNew(ARM_HIGH);
+	createDriveBack(100, 2);
+	raiseLowerArmNew(ARM_MEDIUM - 200);
+	createDriveBack(100, 8);
+	createTurnLeft(21);
+	createDrive(100, 12);
+	raiseLowerArmNew(ARM_MEDIUM);
+	raiseLowerArmNew(ARM_MEDIUM - 350);
+	createDriveBack(100, 10);
+	createTurnLeft(16);
+	createDrive(100, 22);
+	raiseLowerArmNew(ARM_LOW);
 }
 
 int main() {
