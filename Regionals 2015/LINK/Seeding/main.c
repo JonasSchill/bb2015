@@ -1,16 +1,8 @@
 #include "template.h"
 
 int main() {
-	//LINK_main();
-	
-	/*turnLeft(-90);
-	squareUp(1, 2);
-	msleep(500);*/
-	squareUp(1, 2);
-	turnRight(90);
-	/*msleep(500);
-	driveForward(55,1);*/
-	
+	LINK_main();
+
 }
 
 void LINK_main() {
