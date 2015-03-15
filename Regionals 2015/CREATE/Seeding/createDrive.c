@@ -4,7 +4,6 @@
 void raiseLowerArmNew(int destination) {
 	int offset = 75;
 	set_servo_position(SERVO_UP_DOWN_LEFT, destination + offset);
-	msleep(200);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - destination - offset);
 	msleep(500);
 }
