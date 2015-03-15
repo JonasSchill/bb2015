@@ -2,15 +2,12 @@
 
 #define SERVO_UP_DOWN_LEFT 0
 #define SERVO_UP_DOWN_RIGHT 1
-#define SERVO_LEFT_GROUND 500
-#define SERVO_RIGHT_GROUND 1240
 #define SERVO_BASKET 3
 #define BASKET_DUMPED 1500
 #define BASKET_RETURNED 400
-#define ARM_DEFAULT 320
-#define ARM_LOW 530
-#define ARM_MEDIUM 800
-#define ARM_HIGH 1200
+#define ARM_LOW 500
+#define ARM_MEDIUM 700
+#define ARM_HIGH 950
 
 //create arm functions
 void raiseLowerArmNew (int destination);

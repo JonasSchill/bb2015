@@ -2,10 +2,10 @@
 
 
 void raiseLowerArmNew(int destination) {
-	//0 is ground, 520 is horizontal
 	int offset = 75;
 	set_servo_position(SERVO_UP_DOWN_LEFT, destination + offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - destination - offset);
+	msleep(500);
 }
 
 void createDrive (float speed, float distance) {
