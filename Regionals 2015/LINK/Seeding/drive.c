@@ -12,7 +12,7 @@
 void enableAllServos() {
 	enable_servos();
 	set_servo_position(SERVO_UP_DOWN, CLAW_DOWN);
-	set_servo_position(SERVO_OPEN_CLOSE, BLOCK_GRAB);
+	//set_servo_position(SERVO_OPEN_CLOSE, BLOCK_GRAB);
 	msleep(500);
 }
 

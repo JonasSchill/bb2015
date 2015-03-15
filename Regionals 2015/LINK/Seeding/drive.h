@@ -19,11 +19,11 @@
 
 //tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
-#define DrFRC 96.5/RIGHT_FULL_POWER
+#define DrFRC 93/RIGHT_FULL_POWER
 #define DrBRC 96/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
-#define Rt 1.02 
-#define Lt 1.02
+#define Rt 1.012 
+#define Lt 1.025
 #define CLAW_CLOSED 0
 #define CLAW_UP 0
 
