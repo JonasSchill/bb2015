@@ -1,11 +1,17 @@
 #include "createDrive.h"
 
-
-void raiseLowerArmNew(int destination) {
+void driveAndServo(int s_port, int end, int time, float d_speed, float distance)
+{
 	int offset = 75;
-	set_servo_position(SERVO_UP_DOWN_LEFT, destination + offset);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - destination - offset);
-	msleep(500);
+	servo_drive(SERVO_UP_DOWN_LEFT, end + offset, time, d_speed, distance;
+	servo_drive(SERVO_UP_DOWN_RIGHT, 2047 - end - offset, time, d_speed, distance);
+}
+
+void raiseLowerArmNew(int destination, int time) {
+	int offset = 75;
+	servo_set(SERVO_UP_DOWN_LEFT, destination + offset, time);
+	servo_set(SERVO_UP_DOWN_RIGHT, 2047 - destination - offset, time);
+	//msleep(500);
 }
 
 void createDrive (float speed, float distance) {
@@ -63,5 +69,95 @@ void enableDevices() {
 }
 
 
+void servo_set(int port, int end, int time)
+{
+	float increment = 0.05; 
+	float tune_time = 0.19;
+	float curr, start = get_servo_position(port);
+	float i = ((end-start)/(time*tune_time))*increment;
+	if (start > end)
+	{
+		while(curr > end)
+		{
+			set_servo_position(port, curr);
+			curr+=i;
+			msleep((long)(increment*1000));
+		}
+	} 
+	else if (start < end)
+	{
+		while (curr < end)
+		{
+			set_servo_position(port, curr);
+			curr+=i;
+			msleep((long)(increment*1000));
+		}
+	}
+	set_servo_position(port, end);
+}
 
-
+void servo_drive(int s_port, int end, int time, float d_speed, float distance)
+{
+	float increment = 0.05; 
+	float tune_time = 0.19;
+	float curr, start = get_servo_position(s_port);
+	float i = ((end-start)/(time*tune_time))*increment;
+	if (start > end)
+	{
+		set_create_distance(distance*10);
+		create_drive_straight(-d_speed);
+		while(curr > end)
+		{
+			if (get_create_distance()*10 >= 0 && -d_speed > 0)
+			{
+				create_stop();
+			}
+			else if (get_create_distance()*10 <= 0)
+			{
+				create_stop();
+			}
+			set_servo_position(s_port, curr);
+			curr+=i;
+			msleep((long)(increment*1000));
+		}
+		if (-d_speed > 0)
+		{
+			while (get_create_distance()*10 >= 0) {}
+		} 
+		else if (-d_speed < 0)
+		{
+			while (get_create_distance()*10 >= 0) {}
+		}
+		while (get_create_distance()*10 >= 0) {}
+		create_stop();
+	} 
+	else if (start < end)
+	{
+		set_create_distance(distance*10);
+		create_drive_straight(-d_speed);
+		while (curr < end)
+		{
+			if (get_create_distance()*10 >= 0 && -d_speed > 0)
+			{
+				create_stop();
+			}
+			else if (get_create_distance()*10 <= 0)
+			{
+				create_stop();
+			}
+			set_servo_position(s_port, curr);
+			curr+=i;
+			msleep((long)(increment*1000));
+		}
+		if (-d_speed > 0)
+		{
+			while (get_create_distance()*10 >= 0) {}
+		} 
+		else if (-d_speed < 0)
+		{
+			while (get_create_distance()*10 >= 0) {}
+		}
+		create_stop();
+	}
+set_servo_position(s_port, end);
+}

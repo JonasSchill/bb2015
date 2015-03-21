@@ -4,7 +4,7 @@
 
 void dumpSequence() {
 	enableDevices();
-	raiseLowerArmNew(1300);
+	raiseLowerArmNew(1300, 1);
 	msleep(2000);
 	createSquareUp(200,3);
 	createDriveBack(100,5);
@@ -12,36 +12,36 @@ void dumpSequence() {
 	createBasketDump();
 	createTurnLeft(15);
 	createDriveBack(100,50);
-	raiseLowerArmNew(320);
+	raiseLowerArmNew(320, 1);
 }
 
-void pingPongCollect() { //This is being programmed for the actual competion now
-	raiseLowerArmNew(ARM_HIGH - 200);		//drives with raised arm
+void createMain() { //This is being programmed for the actual competion now
+	raiseLowerArmNew(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	createDrive(100, 26);
-	raiseLowerArmNew(ARM_HIGH);
+	raiseLowerArmNew(ARM_HIGH, 1);
 	msleep(500);
 	createDriveBack(100, 8);
 	msleep(500);
-	raiseLowerArmNew(ARM_MEDIUM - 200);
+	raiseLowerArmNew(ARM_MEDIUM - 200, 1);
 	msleep(500);
-	createTurnLeft(25);
+	createTurnLeft(21);
 	createDrive(100, 10);
-	raiseLowerArmNew(ARM_MEDIUM);
+	raiseLowerArmNew(ARM_MEDIUM, 1);
 	msleep(1000);
-	createDriveBack(100, 10);
+	createDriveBack(100, 12);
 	msleep(500);
-	raiseLowerArmNew(ARM_MEDIUM - 350);
+	raiseLowerArmNew(ARM_LOW - 100, 1);
 	msleep(500);
-	createTurnLeft(17);
+	createTurnLeft(16);
 	createDrive(100, 22);
-	raiseLowerArmNew(ARM_LOW);
+	raiseLowerArmNew(ARM_LOW, 1);
 	createDriveBack(100, 15);
 	createTurnLeft(49);
-	createDrive(600, 250);
-	createTurnRight(90);
+	createDrive(175, 25);
+	//createTurnRight(90);
 }
 
 int main() {
 	enableDevices();
-	pingPongCollect();
+	createMain();
 }
