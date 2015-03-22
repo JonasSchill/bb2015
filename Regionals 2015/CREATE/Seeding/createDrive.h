@@ -4,13 +4,13 @@
 #define SERVO_UP_DOWN_RIGHT 1
 #define SERVO_BASKET 3
 #define BASKET_DUMPED 1500
-#define BASKET_RETURNED 400
+#define BASKET_RETURNED 350
 #define ARM_LOW 500
 #define ARM_MEDIUM 750
 #define ARM_HIGH 970
 
 //create arm functions
-void servo_set(int port, int end, int time);
+void driveAndServo(int end, int time, float d_speed, float distance);
 void servo_drive(int s_port, int end, int time, float d_speed, float distance);
 void raiseLowerArmNew (int destination, int time);
 void createBasketDump ();

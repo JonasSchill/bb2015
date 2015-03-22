@@ -1,9 +1,9 @@
 #include "createDrive.h"
 
-void driveAndServo(int s_port, int end, int time, float d_speed, float distance)
+void driveAndServo(int end, int time, float d_speed, float distance)
 {
 	int offset = 75;
-	servo_drive(SERVO_UP_DOWN_LEFT, end + offset, time, d_speed, distance;
+	servo_drive(SERVO_UP_DOWN_LEFT, end + offset, time, d_speed, distance);
 	servo_drive(SERVO_UP_DOWN_RIGHT, 2047 - end - offset, time, d_speed, distance);
 }
 
@@ -65,6 +65,7 @@ void createSquareUp(float speed,float time){
 
 void enableDevices() {
 	enable_servos();
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 	create_connect();
 }
 

@@ -16,21 +16,24 @@ void dumpSequence() {
 }
 
 void createMain() { //This is being programmed for the actual competion now
-	raiseLowerArmNew(ARM_HIGH - 200, 0.5);		//drives with raised arm
-	createDrive(100, 26);
+	//raiseLowerArmNew(ARM_HIGH - 200, 0.5);		//drives with raised arm
+	//createDrive(100, 26);
+	driveAndServo(ARM_HIGH - 200, 0.5, 100, 26);
 	raiseLowerArmNew(ARM_HIGH, 1);
 	msleep(500);
-	createDriveBack(100, 8);
-	msleep(500);
-	raiseLowerArmNew(ARM_MEDIUM - 200, 1);
-	msleep(500);
+	//createDriveBack(100, 8);
+	//msleep(500);
+	//raiseLowerArmNew(ARM_MEDIUM - 200, 1);
+	//msleep(500);
+	driveAndServo(ARM_MEDIUM - 200, 1, -100, 8);
 	createTurnLeft(21);
 	createDrive(100, 10);
 	raiseLowerArmNew(ARM_MEDIUM, 1);
-	msleep(1000);
-	createDriveBack(100, 12);
 	msleep(500);
-	raiseLowerArmNew(ARM_LOW - 100, 1);
+	//createDriveBack(100, 12);
+	//msleep(500);
+	//raiseLowerArmNew(ARM_LOW - 100, 1);
+	driveAndServo(ARM_LOW - 100, 1, -100, 12);
 	msleep(500);
 	createTurnLeft(16);
 	createDrive(100, 22);
