@@ -103,19 +103,27 @@ void servo_drive(int s_port, int end, int time, float d_speed, float distance)
 	float tune_time = 0.19;
 	float curr, start = get_servo_position(s_port);
 	float i = ((end-start)/(time*tune_time))*increment;
+	int driven = 0;
+	int check = 1;
+	if (-d_speed < 0)
+	{
+		check = 1;
+	}
 	if (start > end)
 	{
-		set_create_distance(distance*10);
+		set_create_distance(distance*10*check);
 		create_drive_straight(-d_speed);
 		while(curr > end)
 		{
 			if (get_create_distance()*10 >= 0 && -d_speed > 0)
 			{
 				create_stop();
+				driven = get_servo_position(s_port);
 			}
-			else if (get_create_distance()*10 <= 0)
+			else if (get_create_distance()/10 <= 0)
 			{
 				create_stop();
+				driven = get_servo_position(s_port);
 			}
 			set_servo_position(s_port, curr);
 			curr+=i;
@@ -123,28 +131,30 @@ void servo_drive(int s_port, int end, int time, float d_speed, float distance)
 		}
 		if (-d_speed > 0)
 		{
-			while (get_create_distance()*10 >= 0) {}
+			while (get_create_distance()*10-driven >= 0) {}
 		} 
 		else if (-d_speed < 0)
 		{
-			while (get_create_distance()*10 >= 0) {}
+			while (get_create_distance()/10-driven <= 0) {}
 		}
 		while (get_create_distance()*10 >= 0) {}
 		create_stop();
 	} 
 	else if (start < end)
 	{
-		set_create_distance(distance*10);
+		set_create_distance(distance*10*check);
 		create_drive_straight(-d_speed);
 		while (curr < end)
 		{
 			if (get_create_distance()*10 >= 0 && -d_speed > 0)
 			{
 				create_stop();
+				driven = get_servo_position(s_port);
 			}
-			else if (get_create_distance()*10 <= 0)
+			else if (get_create_distance()/10 <= 0)
 			{
 				create_stop();
+				driven = get_servo_position(s_port);
 			}
 			set_servo_position(s_port, curr);
 			curr+=i;
@@ -152,11 +162,11 @@ void servo_drive(int s_port, int end, int time, float d_speed, float distance)
 		}
 		if (-d_speed > 0)
 		{
-			while (get_create_distance()*10 >= 0) {}
+			while (get_create_distance()*10-driven >= 0) {}
 		} 
 		else if (-d_speed < 0)
 		{
-			while (get_create_distance()*10 >= 0) {}
+			while (get_create_distance()/10-driven <= 0) {}
 		}
 		create_stop();
 	}

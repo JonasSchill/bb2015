@@ -18,7 +18,7 @@ void dumpSequence() {
 void createMain() { //This is being programmed for the actual competion now
 	//raiseLowerArmNew(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);
-	driveAndServo(ARM_HIGH - 200, 0.5, 100, 26);
+	driveAndServo(ARM_HIGH - 350, 0.5, 100, 25);
 	raiseLowerArmNew(ARM_HIGH, 1);
 	msleep(500);
 	//createDriveBack(100, 8);
