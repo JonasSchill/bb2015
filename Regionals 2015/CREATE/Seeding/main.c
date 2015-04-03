@@ -15,10 +15,10 @@ void dumpSequence() {
 	raiseLowerArmNew(320, 1);
 }
 
-void createMain() { //This is being programmed for the actual competion now
+/*void createMain() { //This is being programmed for the actual competion now
 	//raiseLowerArmNew(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);
-	driveAndServo(ARM_HIGH - 350, 0.5, 100, 25);
+	driveAndServo(ARM_HIGH - 400, 0.5, 100, 25);
 	raiseLowerArmNew(ARM_HIGH, 1);
 	msleep(500);
 	//createDriveBack(100, 8);
@@ -42,9 +42,14 @@ void createMain() { //This is being programmed for the actual competion now
 	createTurnLeft(49);
 	createDrive(175, 25);
 	//createTurnRight(90);
-}
+}*/
 
 int main() {
 	enableDevices();
-	createMain();
+	//createMain();
+	//servo_drive(ARM_HIGH, 1, 100, 20);
+	servo_set(ARM_HIGH, 15);
+	/*int offset = 75;
+	set_servo_position(SERVO_UP_DOWN_RIGHT, ARM_HIGH + offset);
+	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - ARM_HIGH - offset);*/
 }
