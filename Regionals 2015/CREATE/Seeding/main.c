@@ -48,7 +48,8 @@ int main() {
 	enableDevices();
 	//createMain();
 	//servo_drive(ARM_HIGH, 1, 100, 20);
-	raiseLowerArmNew(ARM_LOW, 5000);
+	raiseLowerArmNew(ARM_MEDIUM, 5000);
+	raiseLowerArmNew(200, 5000);
 	/*int offset = 75;
 	set_servo_position(SERVO_UP_DOWN_RIGHT, ARM_HIGH + offset);
 	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - ARM_HIGH - offset);*/
