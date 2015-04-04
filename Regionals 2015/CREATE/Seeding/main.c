@@ -51,4 +51,5 @@ int main() {
 	/*int offset = 75;
 	set_servo_position(SERVO_UP_DOWN_RIGHT, ARM_HIGH + offset);
 	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - ARM_HIGH - offset);*/
+	return 0;
 }
