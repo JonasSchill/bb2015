@@ -64,70 +64,57 @@ void enableDevices() {
 
 void servo_set(int end, int time)
 {
-	/*int offset = 75;
-	float increment = 0.01; 
-	float tune_time = 0.02;
-	float curr, start = get_servo_position(SERVO_UP_DOWN_LEFT + offset);
-	float i = ((end-start)/(time*tune_time))*increment;
-	curr = start;
-	if (start > end)
-	{
-		while(curr > (end + offset))
-		{
-			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - offset);
-			set_servo_position(SERVO_UP_DOWN_LEFT, curr + offset);
-			curr+=i;
-			msleep((long)(increment*1000));
-		}
-	} 
-	else if (start < end)
-	{
-		while (curr < (end + offset))
-		{
-			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - offset);
-			set_servo_position(SERVO_UP_DOWN_LEFT, curr + offset);
-			curr+=i;
-			msleep((long)(increment*1000));
-		}
-	}
-	/*set_servo_position(SERVO_UP_DOWN_LEFT, end + offset);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - offset);*/
 	float increment = .01;
-	//printf("servo %d",port);
-	int offset = 75;
-	float tune_time = 1;
-	float curr,start = get_servo_position(SERVO_UP_DOWN_RIGHT + offset);
+	float tune_time = 0.875;
+	float curr,start = get_servo_position(SERVO_UP_DOWN_LEFT) + OFFSET;
 	float i = ((end-start)/(time*tune_time))*increment;
 	curr = start;
-	if (start > end)
+	//printf("start %f", start);
+	//printf("increment  %f", i);
+	while((start > end && curr > end) || (start < end && curr < end))
 	{
-		while(curr > end)
-		{
-			//printf("%f\n",curr);
-			set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - curr - offset);
-			set_servo_position(SERVO_UP_DOWN_RIGHT, curr + offset);
-			curr+=i;
-			msleep((long)(increment*1000));
-		}
+		//printf("start %f", start);
+		//printf("here %f\n",curr);
+		set_servo_position(SERVO_UP_DOWN_LEFT, curr + OFFSET);
+		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - (OFFSET + 95));
+		curr+=i;
+		msleep((long)(increment*1000));
 	}
-	else if (start < end)
-	{
-		while(curr < end)
-		{
-			//printf("%f\n",curr);
-			set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - curr - offset);
-			set_servo_position(SERVO_UP_DOWN_RIGHT, curr + offset);
-			curr+=i;
-			msleep((long)(increment*1000));
-		}
-	}
-	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - curr - offset);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, curr + offset);
+	set_servo_position(SERVO_UP_DOWN_LEFT, end + OFFSET);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - (OFFSET + 95));
 }
 
-void servo_drive(int end, int time, float d_speed, float distance)
+void servo_drive(int end, int time, float d_speed, float distance) //-d_speed means backwards
 {
-	int offset = 75;
+	set_create_distance(distance*10);
+	if (d_speed > 0) 
+	{
+		set_create_distance(0);
+	}
+	printf("%d", get_create_distance());
+	float increment = .01;
+	float tune_time = 0.875;
+	float curr,start = get_servo_position(SERVO_UP_DOWN_LEFT) + OFFSET;
+	float i = ((end-start)/(time*tune_time))*increment;
+	curr = start;
+	create_drive_straight(-d_speed);
+	while((start > end && curr > end) || (start < end && curr < end))
+	{
+		if((get_create_distance()*10 <= 0 && d_speed < 0) || (get_create_distance()/10 >= distance && d_speed > 0))
+		{
+			create_stop();
+		}
+		set_servo_position(SERVO_UP_DOWN_LEFT, curr + OFFSET);
+		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - (OFFSET + 95));
+		curr+=i;
+		msleep((long)(increment*1000));
+	}
+	set_servo_position(SERVO_UP_DOWN_LEFT, end + OFFSET);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - (OFFSET + 95));
+	while ((get_create_distance()*10 >= 0 && d_speed < 0) || (get_create_distance()/10 <= distance && d_speed > 0)) {}
+	create_stop();
+	
+	/*int offset = 75;
 	float increment = 0.05; 
 	float tune_time = 0.19;
 	float curr, start = get_servo_position(SERVO_UP_DOWN_LEFT + offset);
@@ -207,5 +194,5 @@ void servo_drive(int end, int time, float d_speed, float distance)
 	}
 	set_servo_position(SERVO_UP_DOWN_LEFT, end + offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - offset);
-	create_stop();
+	create_stop();*/
 }
