@@ -1,7 +1,7 @@
 /**
 	drive.c
 	Purpose: Holds functions that move different parts of the robot.
-	@author Jonas Schill, Andy Wang
+	@author Jonas Schill, Andy Wang, Max Simpson
 	@version 1.1 2/16/2015
 */
 
@@ -12,7 +12,7 @@
 void enableAllServos() {
 	enable_servos();
 	set_servo_position(SERVO_UP_DOWN, CLAW_DOWN);
-	//set_servo_position(SERVO_OPEN_CLOSE, BLOCK_GRAB);
+	set_servo_position(SERVO_OPEN_CLOSE, BLOCK_GRAB);
 	msleep(500);
 }
 
