@@ -1,9 +1,23 @@
 #include "createDrive.h"
 
 void raiseLowerArmNew(int destination, int time) {
-	
-	//msleep(500);
-
+	int offsetLeft = 75;
+	int offsetRight = 170;
+	int increment;
+	int initAngle = get_servo_position(0);
+	int angle = initAngle;
+	if(angle < destination) {
+		increment = 1;
+	} else {
+		increment = -1;
+	}
+	while(abs(angle - destination) > 5) {
+		printf("%d\n", angle);
+		angle+=increment;
+		set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
+		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
+		msleep(time / abs(destination - initAngle));
+	}
 }
 
 void createDrive (float speed, float distance) {
@@ -58,6 +72,8 @@ void createSquareUp(float speed,float time){
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+	set_servo_position(SERVO_UP_DOWN_LEFT, 75);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 1877);
 	create_connect();
 }
 
