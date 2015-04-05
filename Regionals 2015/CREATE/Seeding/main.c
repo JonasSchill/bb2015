@@ -47,7 +47,7 @@ void dumpSequence() {
 int main() {
 	enableDevices();
 	//createMain();
-	armMove(700, 3000, 15, -70);
+	raiseLowerArm(700, 3000);
 	/*int offset = 75;
 	set_servo_position(SERVO_UP_DOWN_RIGHT, ARM_HIGH + offset);
 	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - ARM_HIGH - offset);*/
