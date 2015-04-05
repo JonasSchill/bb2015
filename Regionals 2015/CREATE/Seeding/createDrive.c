@@ -1,8 +1,8 @@
 #include "createDrive.h"
 
 void raiseLowerArm(int destination, int time) {
-	int offsetLeft = 75;
-	int offsetRight = 170;
+	int offsetLeft = 70;
+	int offsetRight = 180;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;

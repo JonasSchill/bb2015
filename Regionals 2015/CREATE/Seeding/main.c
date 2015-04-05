@@ -28,9 +28,9 @@ void pingPongSequence() {
 	createDriveBack(100, 15);
 }
 
-void preparePingPong {
+void preparePingPong(distance) {
 	createTurnLeft(49);
-	createDrive(100, 135);
+	createDrive(100, distance);
 	createTurnLeft(90);
 	createSquareUp(100,3);
 	createDriveBack(80,5);
@@ -53,12 +53,16 @@ void dumpSequence() {
 
 void createMain() { //This is being programmed for the actual competion now
 	pingPongSequence();
-	preparePingPong();
+	preparePingPong(135);
 	pingPongSequence();
 }
 
 int main() {
 	enableDevices();
+	//createMain();
 	createMain();
+	/*int offset = 75;
+	set_servo_position(SERVO_UP_DOWN_RIGHT, ARM_HIGH + offset);
+	set_servo_position(SERVO_UP_DOWN_LEFT, 2047 - ARM_HIGH - offset);*/
 	return 0;
 }
