@@ -11,7 +11,6 @@
 
 //create arm functions
 void servo_drive(int end, int time, float d_speed, float distance);
-void servo_drive(int end, int time, float d_speed, float distance);
 void raiseLowerArm (int destination, int time);
 void armMove(int destination, float time, int distance, int speed);
 void createBasketDump ();
