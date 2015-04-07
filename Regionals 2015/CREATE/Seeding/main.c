@@ -79,7 +79,6 @@ void createMain() { //This is being programmed for the actual competion now
 
 int main() {
 	enableDevices();
-	armMove(ARM_HIGH - 400, 2000, 25, 100);
-//	createMain();
+	raiseLowerArm(1300, 3000);
 	return 0;
 }
