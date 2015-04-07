@@ -50,6 +50,8 @@ void armMove(int destination, float time, int distance, int speed) {
 	int offsetRight = -140;
 	int increment;
 	int initAngle = get_servo_position(0);
+	int driveDone = 0;
+	int armDone = 0;
 	int angle = initAngle;
 	if(angle < destination) {
 		increment = 5;
@@ -63,21 +65,27 @@ void armMove(int destination, float time, int distance, int speed) {
 		set_create_distance(0);
 	}
 		
-	while(abs(angle - destination) > 5) {
+	while(driveDone == 0 || armDone == 0) {
 		printf("%d\n", angle);
-		angle+=increment;
-		set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
-		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
-		msleep(time / abs(destination - initAngle));
+		if(abs(angle - destination) > 5) {
+			angle+=increment;
+			set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
+			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
+			msleep(time / abs(destination - initAngle));
+		} else {
+			armDone = 1;
+		}
 		if(speed > 0) {
 			if(get_create_distance()*10 <= 0) {
 				create_stop();
 				set_create_distance(10); //Just make up a position more than 0 so it doesn't stop the create again, slowing the program
+				createDone = 1;
 			}
 		} else {
 			if(get_create_distance()*10 >= distance) {
 				create_stop();
 				set_create_distance(0);
+				createDone = 1;
 			}
 		}
 	}
