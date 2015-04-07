@@ -7,7 +7,7 @@
 #define BASKET_RETURNED 350
 #define ARM_LOW 300
 #define ARM_MEDIUM 750
-#define ARM_HIGH 750
+#define ARM_HIGH 810
 #define OFFSET 75
 
 //create arm functions
