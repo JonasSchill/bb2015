@@ -1,8 +1,8 @@
 #include "createDrive.h"
 
-void raiseLowerArm(int destination, int time) {
-	int offsetLeft = 75;
-	int offsetRight = 170;
+void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
+	int offsetLeft = 0;
+	int offsetRight = -140;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;
@@ -21,8 +21,8 @@ void raiseLowerArm(int destination, int time) {
 }
 
 void armMove(int destination, float time, int distance, int speed) {
-	int offsetLeft = 70;
-	int offsetRight = 180;
+	int offsetLeft = 0;
+	int offsetRight = -140;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;
@@ -58,17 +58,17 @@ void armMove(int destination, float time, int distance, int speed) {
 	}
 }
 
-void createDrive (float speed, float distance) {
+void createDrive(float speed, float distance) {
 	set_create_distance(distance*10);
 	create_drive_straight(-speed);
-	while (get_create_distance()*10 >= 0){}
+	while (get_create_distance() >= 0){}
 	create_stop();
 }
 
-void createDriveBack (float speed, float distance) {
+void createDriveBack(float speed, float distance) {
 	set_create_distance(0);
 	create_drive_straight(speed);
-	while (get_create_distance()/10 <= distance){}
+	while (get_create_distance() <= distance*10){}
 	create_stop();
 }
 
@@ -110,9 +110,10 @@ void createSquareUp(float speed,float time){
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-	set_servo_position(SERVO_UP_DOWN_LEFT, 75);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, 1877);
+	set_servo_position(SERVO_UP_DOWN_LEFT, 900);
+	set_servo_position(SERVO_UP_DOWN_RIGHT, 1300);
 	create_connect();
+	msleep(2000);
 }
 
 
