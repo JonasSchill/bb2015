@@ -1,6 +1,10 @@
 #include "createDrive.h"
 
-void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
+
+
+void raiseLowerArm(int destination, int time) {
+//	int offsetLeft = 70;
+//	int offsetRight = 180;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;
@@ -13,7 +17,8 @@ void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
 	while(abs(angle - destination) > 5) {
 		printf("%d\n", angle);
 		angle += increment;
-		set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
+		set_servo_position(SERVO_UP_DOWN_LEFT, angle/* + offsetLeft*/);
+	//	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
 		msleep(time / abs(destination - initAngle));
 	}
 }
@@ -114,35 +119,98 @@ void createSquareUp(float speed,float time){
 }
 
 void createArmDrive(int armDestination, float armSleepTime, float moveDistance, float moveSpeed) {
-	int offsetLeft = 70;
-	int offsetRight = 180;
+//	int offsetLeft = 70;
+//	int offsetRight = 180;
 	float angleL = get_servo_position(SERVO_UP_DOWN_LEFT);
-	float angleR = get_servo_position(SERVO_UP_DOWN_RIGHT);
+//	float angleR = get_servo_position(SERVO_UP_DOWN_RIGHT);
 
-	set_create_distance(moveDistance*10);
-	create_drive_straight(-moveSpeed);
+	if (moveDistance > 0) {
+		set_create_distance(moveDistance*10);
+		create_drive_straight(-moveSpeed);
+	}
+	
+	else {
+		set_create_distance(0);
+		create_drive_straight(moveSpeed);
+	}
 
 	int armComplete = 0;
 	int moveComplete = 0;
 	
 	while(armComplete == 0 || moveComplete == 0) {
 		if(armComplete == 0) {
+			if (armDestination < get_servo_position(SERVO_UP_DOWN_LEFT)/* + offsetLeft*/) {
+				angleL -= 0.1;
+//				angleR -=0.1;
+			}
+			else {
 			angleL += 0.1;
-			angleR += 0.1;
-			set_servo_position(SERVO_UP_DOWN_LEFT, angleL + offsetLeft);
-			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angleR - offsetRight);
+//			angleR += 0.1;
+			}
+			set_servo_position(SERVO_UP_DOWN_LEFT, angleL /*+ offsetLeft*/);
+//			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angleR - offsetRight);
 			
-			if(angleL + offsetLeft >= armDestination) {
+			if(angleL/* + offsetLeft*/ >= armDestination) {
 				armComplete = 1;
 			}
 		}
 
-		if (get_create_distance() <= 0) {
+		if (moveComplete == 0) {
+			if (get_create_distance() <= 0) {
+				if (get_create_distance() >= 0) {
+					create_stop();
+					moveComplete = 1;
+				}
+			}
+		}
+		
+			else {
+				if (get_create_distance() <= 0) {
+					create_stop();
+					moveComplete = 1;
+				}
+			}
+	
+		msleep(armSleepTime*100);
+	}
+}
+
+void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, float moveSpeed) {
+//	int offsetLeft = 70;
+//	int offsetRight = 180;
+	float angleR = get_servo_position(SERVO_UP_DOWN_LEFT);
+//	float angleR = get_servo_position(SERVO_UP_DOWN_RIGHT);
+
+	create_drive_straight(-moveSpeed);
+	
+	int armComplete = 0;
+	int moveComplete = 0;
+	
+	while(armComplete == 0 || moveComplete == 0) {
+		if(armComplete == 0) {
+			if (armDestination < get_servo_position(SERVO_UP_DOWN_LEFT)/* + offsetLeft*/) {
+//				angleL -= 0.1;
+				angleR -=0.1;
+			}
+			else {
+//			angleL += 0.1;
+			angleR += 0.1;
+			}
+			set_servo_position(SERVO_UP_DOWN_LEFT, angleR/* + offsetLeft*/);
+//			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angleR - offsetRight);
+			
+			if(angleR/* + offsetLeft*/ >= armDestination) {
+				armComplete = 1;
+			}
+		}
+
+		if (moveComplete == 0) {
+			msleep(moveTime*1000);
 			create_stop();
 			moveComplete = 1;
 		}
 	
-		msleep(armSleepTime);
+		msleep(armSleepTime*100);
 	}
 }
 

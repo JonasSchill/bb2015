@@ -5,7 +5,7 @@
 void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
-	armMove(ARM_HIGH - 400, 0.5, 25, 25);	    //puts arm into position
+	createArmDrive(ARM_HIGH - 400, 2, 25, 80);	    //puts arm into position
 	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
 	//createDriveBack(100, 8);
@@ -15,7 +15,7 @@ void pingPongHigh() {
 void pingPongMedium() {
 	//raiseLowerArm(ARM_MEDIUM - 200, 1);
 	//msleep(500);
-	armMove(ARM_MEDIUM - 200, 1, -100, 8);		//gets into position
+	createArmDrive(ARM_MEDIUM - 200, 1, 8, -100);		//gets into position
 	createTurnLeft(21);
 	createDrive(100, 10);
 	raiseLowerArm(ARM_MEDIUM, 1);				//gets ping pong
@@ -26,7 +26,7 @@ void pingPongMedium() {
 	
 void pingPongLow() {
 	//raiseLowerArm(ARM_LOW - 100, 1);
-	armMove(ARM_LOW - 100, 1, -100, 12);		//gets into position
+	createArmDrive(ARM_LOW - 100, 1, 12, -100);		//gets into position
 	msleep(500);
 	createTurnLeft(16);
 	createDrive(100, 22);
@@ -36,12 +36,23 @@ void pingPongLow() {
 
 void pingPong() {
 	pingPongHigh();
-//	pingPongMedium();
-//	pingPongLow();
+	pingPongMedium();
+	pingPongLow();
+}
+
+void scrape(distance) {
+	createTurnLeft(49);
+	createDrive(100,distance);
+	createTurnLeft(270);
+	raiseLowerArm(ARM_HIGH, 1);
+	createSquareUp(100, 1);
+	createDriveBack(100, 5);
+	createTurnRight(360);
 }
 
 void preparePingPong(distance) {
-	createTurnLeft(49);
+	createArmDrive(ARM_LOW-100, 1.5, 15, -100);
+	createTurnLeft(90);
 	createDrive(100, distance);
 	createTurnLeft(90);
 	createSquareUp(100,3);
@@ -59,22 +70,21 @@ void prepareDump(distance) {
 }
 
 void dumpSequence() {
-	raiseLowerArm(1300, 1);
-	msleep(2000);
-	createSquareUp(200,3);
+	createArmSquareUp(ARM_HIGH, 0.5, 2, 100);
 	createDriveBack(100,5);
 	createTurnRight(15);
 	createBasketDump();
 	createTurnLeft(15);
-	createDriveBack(100,50);
-	raiseLowerArm(320, 1);
+	createArmDrive(ARM_LOW-100, 1, 50, -100);
 }
 
 void createMain() { //This is being programmed for the actual competion now
 	pingPong();
-//	preparePingPong(135);
-//	pingPong();
-//	prepareDump();
+	scrape(21);
+	preparePingPong(114);
+	pingPong();
+	prepareDump(30);
+	dumpSequence();
 }
 
 int main() {
