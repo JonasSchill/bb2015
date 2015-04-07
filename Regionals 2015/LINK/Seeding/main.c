@@ -3,8 +3,9 @@
 int main() {
 	LINK_main();
 	/*enableAllServos();
+	raiseClaw();
 	msleep(300);
-	driveForward(50,1);*/
+	turnLeft(360);*/
 }
 
 void LINK_main() {
@@ -35,7 +36,7 @@ void LINK_main() {
 	closeClaw();
 	driveForward(103, 1);
 	turnRight(97); //bump turn
-	driveForward(28,1);
+	driveForward(26,1);
 	turnRight(103); //bumpy turn
 	
 	//drive down first alley for tribbles
@@ -53,17 +54,17 @@ void LINK_main() {
 	msleep(500);
 	turnRight(90);
 	msleep(500);
-	driveForward(67,1);
+	driveForward(70,1);
 	lowerClaw();
 	openClaw();
 	driveForward(109, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
-	turnRight(-90);
+	turnRight(-95);
 	squareUp(1,2);
 	turnLeft(90);
-	driveForward(55,1);
+	driveForward(58,1);
 	turnRight(90);
 	driveForward(30,1);
 	turnLeft(90); //work on 

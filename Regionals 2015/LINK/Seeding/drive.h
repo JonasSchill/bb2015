@@ -8,7 +8,7 @@
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
 #define CLAW_OPEN CLAW_CLOSED+950
-#define CLAW_DOWN CLAW_UP+605
+#define CLAW_DOWN 540
 #define CLAW_OPEN_READY CLAW_CLOSED+600
 #define CLAW_UP_READY 160
 #define LS_LEFT 1
@@ -19,13 +19,13 @@
 
 //tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
-#define DrFRC 92/RIGHT_FULL_POWER
+#define DrFRC 95/RIGHT_FULL_POWER
 #define DrBRC 96/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
-#define Rt .98 
-#define Lt .94
-#define CLAW_CLOSED 650
-#define CLAW_UP 0
+#define Rt .99 
+#define Lt .985
+#define CLAW_CLOSED 0
+#define CLAW_UP 80
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))
