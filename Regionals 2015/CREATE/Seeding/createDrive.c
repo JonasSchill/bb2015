@@ -18,30 +18,6 @@ void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
 	}
 }
 
-
-
-void servo_set(int end, int time)
-{
-	float increment = .01;
-	float tune_time = 0.875;
-	float curr,start = get_servo_position(SERVO_UP_DOWN_LEFT) + OFFSET;
-	float i = ((end-start)/(time*tune_time))*increment;
-	curr = start;
-	//printf("start %f", start);
-	//printf("increment  %f", i);
-	while((start > end && curr > end) || (start < end && curr < end))
-	{
-		//printf("start %f", start);
-		//printf("here %f\n",curr);
-		set_servo_position(SERVO_UP_DOWN_LEFT, curr + OFFSET);
-		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - (OFFSET + 95));
-		curr+=i;
-		msleep((long)(increment*1000));
-	}
-	set_servo_position(SERVO_UP_DOWN_LEFT, end + OFFSET);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - (OFFSET + 95));
-}
-
 void armMove(int destination, float time, int distance, int speed) {
 	int offsetLeft = 0;
 	int offsetRight = -140;
