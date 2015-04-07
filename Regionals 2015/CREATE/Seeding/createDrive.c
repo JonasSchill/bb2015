@@ -1,8 +1,6 @@
 #include "createDrive.h"
 
 void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
-	int offsetLeft = 0;
-	int offsetRight = -140;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;
@@ -16,7 +14,6 @@ void raiseLowerArm(int destination, int time) { //Minimum of 900, or break servo
 		printf("%d\n", angle);
 		angle += increment;
 		set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
-		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
 		msleep(time / abs(destination - initAngle));
 	}
 }
@@ -176,13 +173,7 @@ void createArmDrive(int armDestination, float armSleepTime, float moveDistance, 
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-<<<<<<< HEAD
 	set_servo_position(SERVO_UP_DOWN_LEFT, 900);
-	set_servo_position(SERVO_UP_DOWN_RIGHT, 1300);
-=======
-	//set_servo_position(SERVO_UP_DOWN_LEFT, 75);
-	//set_servo_position(SERVO_UP_DOWN_RIGHT, 1877);
->>>>>>> origin/master
 	create_connect();
 	msleep(2000);
 }
