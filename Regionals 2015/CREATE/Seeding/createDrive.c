@@ -1,10 +1,6 @@
 #include "createDrive.h"
 
-
-
 void raiseLowerArm(int destination, int time) {
-//	int offsetLeft = 70;
-//	int offsetRight = 180;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int angle = initAngle;
@@ -17,15 +13,12 @@ void raiseLowerArm(int destination, int time) {
 	while(abs(angle - destination) > 5) {
 		printf("%d\n", angle);
 		angle += increment;
-		set_servo_position(SERVO_UP_DOWN_LEFT, angle/* + offsetLeft*/);
-	//	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
+		set_servo_position(ARM_SERVO, angle);
 		msleep(time / abs(destination - initAngle));
 	}
 }
 
 void armMove(int destination, float time, int distance, int speed) {
-	int offsetLeft = 0;
-	int offsetRight = -140;
 	int increment;
 	int initAngle = get_servo_position(0);
 	int driveDone = 0;
@@ -47,8 +40,7 @@ void armMove(int destination, float time, int distance, int speed) {
 		printf("%d\n", angle);
 		if(abs(angle - destination) > 5) {
 			angle+=increment;
-			set_servo_position(SERVO_UP_DOWN_LEFT, angle + offsetLeft);
-			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angle - offsetRight);
+			set_servo_position(ARM_SERVO, angle);
 			msleep(time / abs(destination - initAngle));
 		} else {
 			armDone = 1;
@@ -57,13 +49,13 @@ void armMove(int destination, float time, int distance, int speed) {
 			if(get_create_distance()*10 <= 0) {
 				create_stop();
 				set_create_distance(10); //Just make up a position more than 0 so it doesn't stop the create again, slowing the program
-				createDone = 1;
+				driveDone = 1;
 			}
 		} else {
 			if(get_create_distance()*10 >= distance) {
 				create_stop();
 				set_create_distance(0);
-				createDone = 1;
+				driveDone = 1;
 			}
 		}
 	}
@@ -119,10 +111,7 @@ void createSquareUp(float speed,float time){
 }
 
 void createArmDrive(int armDestination, float armSleepTime, float moveDistance, float moveSpeed) {
-//	int offsetLeft = 70;
-//	int offsetRight = 180;
-	float angleL = get_servo_position(SERVO_UP_DOWN_LEFT);
-//	float angleR = get_servo_position(SERVO_UP_DOWN_RIGHT);
+	float angle = get_servo_position(ARM_SERVO);
 
 	if (moveDistance > 0) {
 		set_create_distance(moveDistance*10);
@@ -139,18 +128,15 @@ void createArmDrive(int armDestination, float armSleepTime, float moveDistance, 
 	
 	while(armComplete == 0 || moveComplete == 0) {
 		if(armComplete == 0) {
-			if (armDestination < get_servo_position(SERVO_UP_DOWN_LEFT)/* + offsetLeft*/) {
-				angleL -= 0.1;
-//				angleR -=0.1;
+			if (armDestination < get_servo_position(ARM_SERVO)) {
+				angle -= 0.1;
 			}
 			else {
-			angleL += 0.1;
-//			angleR += 0.1;
+			angle += 0.1;
 			}
-			set_servo_position(SERVO_UP_DOWN_LEFT, angleL /*+ offsetLeft*/);
-//			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angleR - offsetRight);
+			set_servo_position(ARM_SERVO, angle);
 			
-			if(angleL/* + offsetLeft*/ >= armDestination) {
+			if(angle >= armDestination) {
 				armComplete = 1;
 			}
 		}
@@ -176,9 +162,7 @@ void createArmDrive(int armDestination, float armSleepTime, float moveDistance, 
 }
 
 void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, float moveSpeed) {
-//	int offsetLeft = 70;
-//	int offsetRight = 180;
-	float angleR = get_servo_position(SERVO_UP_DOWN_LEFT);
+	float angleR = get_servo_position(ARM_SERVO);
 //	float angleR = get_servo_position(SERVO_UP_DOWN_RIGHT);
 
 	create_drive_straight(-moveSpeed);
@@ -188,7 +172,7 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 	
 	while(armComplete == 0 || moveComplete == 0) {
 		if(armComplete == 0) {
-			if (armDestination < get_servo_position(SERVO_UP_DOWN_LEFT)/* + offsetLeft*/) {
+			if (armDestination < get_servo_position(ARM_SERVO)/* + offsetLeft*/) {
 //				angleL -= 0.1;
 				angleR -=0.1;
 			}
@@ -196,7 +180,7 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 //			angleL += 0.1;
 			angleR += 0.1;
 			}
-			set_servo_position(SERVO_UP_DOWN_LEFT, angleR/* + offsetLeft*/);
+			set_servo_position(ARM_SERVO, angleR/* + offsetLeft*/);
 //			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - angleR - offsetRight);
 			
 			if(angleR/* + offsetLeft*/ >= armDestination) {
@@ -217,13 +201,13 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-	set_servo_position(SERVO_UP_DOWN_LEFT, 900);
+	set_servo_position(ARM_SERVO, 2000);
 	create_connect();
 	msleep(2000);
 }
 
 
-
+/*
 void servo_drive(int end, int time, float d_speed, float distance) //-d_speed means backwards
 {
 	set_create_distance(distance*10);
@@ -234,7 +218,7 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 	printf("%d", get_create_distance());
 	float increment = .01;
 	float tune_time = 0.875;
-	float curr,start = get_servo_position(SERVO_UP_DOWN_LEFT) + OFFSET;
+	float curr,start = get_servo_position(ARM_SERVO) + OFFSET;
 	float i = ((end-start)/(time*tune_time))*increment;
 	curr = start;
 	create_drive_straight(-d_speed);
@@ -244,12 +228,12 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 		{
 			create_stop();
 		}
-		set_servo_position(SERVO_UP_DOWN_LEFT, curr + OFFSET);
+		set_servo_position(ARM_SERVO, curr + OFFSET);
 		set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - (OFFSET + 95));
 		curr+=i;
 		msleep((long)(increment*1000));
 	}
-	set_servo_position(SERVO_UP_DOWN_LEFT, end + OFFSET);
+	set_servo_position(ARM_SERVO, end + OFFSET);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - (OFFSET + 95));
 	while ((get_create_distance()*10 >= 0 && d_speed < 0) || (get_create_distance()/10 <= distance && d_speed > 0)) {}
 	create_stop();
@@ -257,7 +241,7 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 	/*int offset = 75;
 	float increment = 0.05; 
 	float tune_time = 0.19;
-	float curr, start = get_servo_position(SERVO_UP_DOWN_LEFT + offset);
+	float curr, start = get_servo_position(ARM_SERVO + offset);
 	float i = ((end-start)/(time*tune_time))*increment;
 	int driven = 0;
 	int check = 0;
@@ -279,7 +263,7 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 			{
 				create_stop();
 			}
-			set_servo_position(SERVO_UP_DOWN_LEFT, curr + offset);
+			set_servo_position(ARM_SERVO, curr + offset);
 			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - offset);
 			curr+=i;
 			printf("1");
@@ -312,7 +296,7 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 			{
 				create_stop();
 			}
-			set_servo_position(SERVO_UP_DOWN_LEFT, curr + offset);
+			set_servo_position(ARM_SERVO, curr + offset);
 			set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - curr - offset);
 			curr+=i;
 			printf("2");
@@ -332,7 +316,7 @@ void servo_drive(int end, int time, float d_speed, float distance) //-d_speed me
 			create_stop();
 		}
 	}
-	set_servo_position(SERVO_UP_DOWN_LEFT, end + offset);
+	set_servo_position(ARM_SERVO, end + offset);
 	set_servo_position(SERVO_UP_DOWN_RIGHT, 2047 - end - offset);
-	create_stop();*/
-}
+	create_stop();
+}*/

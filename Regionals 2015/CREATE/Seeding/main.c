@@ -89,6 +89,6 @@ void createMain() { //This is being programmed for the actual competion now
 
 int main() {
 	enableDevices();
-	raiseLowerArm(1300, 3000);
+	raiseLowerArm(900, 3000);
 	return 0;
 }

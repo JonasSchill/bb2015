@@ -1,7 +1,6 @@
 //define things for createDrive.c here
 
-#define SERVO_UP_DOWN_LEFT 0
-#define SERVO_UP_DOWN_RIGHT 1
+#define ARM_SERVO 0
 #define SERVO_BASKET 3
 #define BASKET_DUMPED 1500
 #define BASKET_RETURNED 350
