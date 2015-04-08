@@ -1,5 +1,16 @@
 #include "createDrive.h"
 
+void driveTouch(speed) {
+	int x = 0;
+	create_drive_direct(-1*speed,-1*speed);
+	while(x == 0) {
+		if (get_create_lbump() == 1 || get_create_rbump() == 1) {
+			x = 1;
+		}
+	}
+	create_stop();
+}
+
 void raiseLowerArm(int destination, int time) {
 	int increment;
 	int initAngle = get_servo_position(0);
