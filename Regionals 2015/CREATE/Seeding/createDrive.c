@@ -52,7 +52,7 @@ void armMove(int destination, float time, int distance, int speed) {
 				driveDone = 1;
 			}
 		} else {
-			if(get_create_distance()*10 >= distance) {
+			if(get_create_distance() >= distance*10) {
 				create_stop();
 				set_create_distance(0);
 				driveDone = 1;
@@ -129,10 +129,10 @@ void createArmDrive(int armDestination, float armSleepTime, float moveDistance, 
 	while(armComplete == 0 || moveComplete == 0) {
 		if(armComplete == 0) {
 			if (armDestination < get_servo_position(ARM_SERVO)) {
-				angle -= 0.1;
+				angle -= 1;
 			}
 			else {
-			angle += 0.1;
+			angle += 1;
 			}
 			set_servo_position(ARM_SERVO, angle);
 			
@@ -201,7 +201,7 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-	set_servo_position(ARM_SERVO, 2000);
+	set_servo_position(ARM_SERVO, 1805);
 	create_connect();
 	msleep(2000);
 }
