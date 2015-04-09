@@ -5,7 +5,7 @@
 void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
-	armMove(ARM_HIGH, 4000, 34, 130);	    //puts arm into position
+	armMove(ARM_HIGH, 4000, 32, 121);	    //puts arm into position
 //	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
 	//createDriveBack(100, 8);
@@ -16,9 +16,9 @@ void pingPongMedium() {
 	//raiseLowerArm(ARM_MEDIUM - 200, 1);
 	//msleep(500);
 	createDriveBack(100, 2);
-	armMove(ARM_MEDIUM + 200, 1000, 13, -100);		//gets into position
+	armMove(ARM_MEDIUM + 200, 1000, 11, -100);		//gets into position
 	createTurnLeft(24);
-	createDrive(100, 10);
+	createDrive(100, 11);
 	raiseLowerArm(ARM_MEDIUM, 1000);				//gets ping pong
 	msleep(500);
 	//createDriveBack(100, 12);
@@ -27,7 +27,7 @@ void pingPongMedium() {
 	
 void pingPongLow() {
 	//raiseLowerArm(ARM_LOW - 100, 1);
-	createDriveBack(100, 2);
+	createDriveBack(100, 3);
 	armMove(ARM_LOW + 300, 1000, 7, -100);		//gets into position
 	msleep(500);
 	createTurnLeft(17);
@@ -67,9 +67,9 @@ void pingPongHigh2() {
 void pingPongMedium2() {
 	createDriveBack(100, 2);
 	armMove(ARM_MEDIUM + 200, 1000, 14, -100);		//gets into position
-	createTurnRight(19);
+	createTurnRight(18);
 	createDrive(150, 21);
-	raiseLowerArm(ARM_MEDIUM, 1000);				//gets ping pong
+	raiseLowerArm(ARM_MEDIUM - 100, 1000);				//gets ping pong
 	msleep(500);
 }
 
@@ -86,17 +86,17 @@ void scrape(distance) {
 }
 
 void preparePingPong() {
-	createTurnLeft(58);
-	createSquareUp(500, 4.15);
+	createTurnLeft(57);
+	createSquareUp(500, 3.9	);
 	createSquareUp(100, 2.3);
 	createTurnRight(83);
 	driveTouch(-100);	
 }
 
 void prepareDump() {
-	createTurnRight(49);
-	createDrive(100, 10);
-	createTurnLeft(90);
+	createTurnRight(7);
+	createDrive(100, 18);
+	createBasketDump
 }
 
 void dumpSequence() {
@@ -110,10 +110,9 @@ void dumpSequence() {
 
 void createMain() { //This is being programmed for the actual competion now
 	pingPong();
-	//scrape(28);
 	preparePingPong();
 	pingPong2();
-//	gprepareDump(60);
+	prepareDump(60);
 //	dumpSequence();
 }
 
