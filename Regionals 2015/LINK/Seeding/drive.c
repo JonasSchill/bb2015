@@ -220,3 +220,10 @@ void squareUp(float speed,float time) {
 	msleep(time*1000);
 	ao();
 }
+
+void dualTurn(int time) {
+	motor(MOTOR_RIGHT,-RIGHT_FULL_POWER);
+	motor(MOTOR_LEFT,LEFT_FULL_POWER);
+	msleep(time);
+	ao();
+}
