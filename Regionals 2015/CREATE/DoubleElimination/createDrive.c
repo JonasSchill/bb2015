@@ -11,6 +11,17 @@ void driveTouch(speed) {
 	create_stop();
 }
 
+void driveTouchR(speed) {
+	int x = 0;
+	create_drive_direct(-1*speed,-1*speed);
+	while(x == 0) {
+		if (get_create_rbump() == 1) {
+			x = 1;
+		}
+	}
+	create_stop();
+}
+
 void raiseLowerArm(int destination, int time) {
 	int increment;
 	int initAngle = get_servo_position(0);
@@ -211,8 +222,8 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 
 void enableDevices() {
 	enable_servos();
-	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-	set_servo_position(ARM_SERVO, 1805);
+//	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+//	set_servo_position(ARM_SERVO, 1805);
 	create_connect();
 	msleep(2000);
 }

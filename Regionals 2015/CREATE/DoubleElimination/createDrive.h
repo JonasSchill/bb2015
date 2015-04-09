@@ -10,7 +10,6 @@
 #define OFFSET 75
 #define ARM_DRIVE_HEIGHT 1200
 #define ARM_VERY_HIGH 130
-#define ARM_DOWN 1695
 
 //create arm functions
 void servo_drive(int end, int time, float d_speed, float distance);

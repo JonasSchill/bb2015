@@ -6,7 +6,7 @@ void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
 	armMove(ARM_HIGH-50, 3500, 32, 110);	    //puts arm into position
-//	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
+	//	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
 	//createDriveBack(100, 8);
 	//msleep(500);
@@ -24,7 +24,7 @@ void pingPongMedium() {
 	//createDriveBack(100, 12);
 	//msleep(500);
 }
-	
+
 void pingPongLow() {
 	//raiseLowerArm(ARM_LOW - 100, 1);
 	createDriveBack(100, 3);
@@ -59,7 +59,7 @@ void pingPongHigh2() {
 	createDriveBack(100, 2);
 	armMove(ARM_HIGH + 500, 2000, 8, -130);		//gets into position
 	msleep(500);
-	createTurnRight(17);
+	createTurnRight(18);
 	armMove(ARM_HIGH-100, 2500, 27, 250);		//gets ping pong	
 	createDriveBack(100, 10);
 }
@@ -67,7 +67,7 @@ void pingPongHigh2() {
 void pingPongMedium2() {
 	createDriveBack(100, 2);
 	armMove(ARM_MEDIUM + 300, 1000, 14, -100);		//gets into position
-	createTurnRight(18);
+	createTurnRight(19);
 	createDrive(150, 21);
 	raiseLowerArm(ARM_MEDIUM - 100, 1000);				//gets ping pong
 	msleep(500);
@@ -85,20 +85,20 @@ void scrape() {
 	createTurnRight(90);
 	createDrive(100, 6.5);
 	createTurnRight(270);
-/*	createTurnLeft(15);
+	/*	createTurnLeft(15);
 	createDrive(100, 8);
 	raiseLowerArm(ARM_HIGH-100, 1000);
 	createDriveBack(100, 2);
 	createTurnRight(15);*/
-/*	create_drive_direct(300, 0);
+	/*	create_drive_direct(300, 0);
 	msleep(500);
 	create_stop();
 	create_drive_direct(0, 300);
 	msleep(500);
 	create_stop();
 	driveTouch(-200);
-//	createTurnRight(360);
-//	driveTouch(-200);
+	//	createTurnRight(360);
+	//	driveTouch(-200);
 	createTurnRight(40);
 	set_servo_position(SERVO_BASKET, 100);
 	msleep(1000);
@@ -125,6 +125,17 @@ void dump() {
 	createBasketDump();
 }
 
+void deployBarrier() {
+	createTurnLeft(90);
+	createDrive(100, 99);
+	createTurnRight(90);
+ 	createDrive(200, 65);
+	driveTouch(-300);
+	createTurnLeft(90);
+	driveTouchR(-300);
+	createTurnRight(90);
+}
+
 void createMain() { //This is being programmed for the actual competion now
 	pingPong();
 	preparePingPong();
@@ -135,6 +146,6 @@ void createMain() { //This is being programmed for the actual competion now
 
 int main() {
 	enableDevices();
-	createMain();
+	deployBarrier();
 	return 0;
 }
