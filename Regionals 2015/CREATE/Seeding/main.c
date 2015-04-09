@@ -86,10 +86,10 @@ void scrape() {
 //	createTurnRight(360);
 //	driveTouch(-200);
 	createTurnRight(40);
-	set_servo_position(SERVO_BASKET, 300);
-	msleep(500);
+	set_servo_position(SERVO_BASKET, 100);
+	msleep(1000);
 	createTurnLeft(40);
-	createDrive(100, 35);
+	createDrive(100, 36);
 }
 
 void preparePingPong() {
@@ -120,6 +120,7 @@ void createMain() { //This is being programmed for the actual competion now
 
 int main() {
 	enableDevices();
-	createMain();
+//	createMain();
+	scrape();
 	return 0;
 }
