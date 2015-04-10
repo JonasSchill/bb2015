@@ -74,7 +74,9 @@ void LINK_main() {
 	msleep(1000);
 	
 	turnRight(74);
-	squareUp(1, 2);
+	squareUp(1, 0.5);
+	turnLeft(-20);
+	squareUp(1, 1.5);
 	turnRight(-20);
 	turnLeft(-20);
 	squareUp(1, 1);
@@ -84,5 +86,6 @@ void LINK_main() {
 	turnRight(90);
 	driveForward(30,1);
 	turnLeft(90); //work on 
-	driveForward(103, 1);
+	driveForward(30, 1);
+	turnLeft(90);
 }
