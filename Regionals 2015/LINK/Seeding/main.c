@@ -2,10 +2,10 @@
 
 int main() {
 	LINK_main();
-	/*enableAllServos();
+/*	enableAllServos();
 	raiseClaw();
 	msleep(300);
-	turnLeft(360);*/
+	turnRight(360);*/
 }
 
 void LINK_main() {
@@ -25,6 +25,8 @@ void LINK_main() {
 	msleep(500);
 	raiseClawReady();
 	openClaw();
+	msleep(400);
+	closeClaw();
 	
 	
 	
