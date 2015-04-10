@@ -212,15 +212,13 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 }
 
 void enableDevices() {
-	create_connect();
-	loadSounds();
+	//loadSounds();
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-	msleep(2000);
 	set_servo_position(ARM_SERVO, 1805);
-	msleep(6000);
-	playPowerup();
-	msleep(2000);
+	msleep(10000);
+//	playPowerup();
+	create_connect();
 }
 
 void loadSounds() {
