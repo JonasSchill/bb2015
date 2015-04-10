@@ -8,9 +8,9 @@
 #define SERVO_OPEN_CLOSE 1
 #define SERVO_UP_DOWN 3
 #define CLAW_OPEN CLAW_CLOSED+950
-#define CLAW_DOWN 540
+#define CLAW_DOWN 900
 #define CLAW_OPEN_READY CLAW_CLOSED+600
-#define CLAW_UP_READY 160
+#define CLAW_UP_READY 370
 #define LS_LEFT 1
 #define LS_RIGHT 0
 #define TAPE_VALUE 880
@@ -25,7 +25,7 @@
 #define Rt .99 
 #define Lt .985
 #define CLAW_CLOSED 0
-#define CLAW_UP 80
+#define CLAW_UP 5
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))

@@ -65,22 +65,22 @@ void LINK_main() {
 	turnRight(90);
 	msleep(500);
 	
-	driveForward(60,1);
+	driveForward(65,1);
 	lowerClaw();
 	openClaw();
-	driveForward(109, 1);
+	driveForward(92, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
 	
-	turnRight(92);
+	turnRight(74);
 	squareUp(1, 2);
 	turnRight(-20);
 	turnLeft(-20);
 	squareUp(1, 1);
 	msleep(500);
 	turnRight(90);
-	driveForward(100,1);
+	driveForward(62,1);
 	turnRight(90);
 	driveForward(30,1);
 	turnLeft(90); //work on 
