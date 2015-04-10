@@ -30,42 +30,57 @@ void LINK_main() {
 	
 	//get into position to alley
 	raiseClaw();
-	turnLeft(-180);
-	msleep(200);
+	driveBackward(5, 1);
+	turnLeft(-90);
 	squareUp(1,3);
+	msleep(200);
+	
+	raiseClaw();
+	driveForward(5, 1);
+	turnRight(90);
 	closeClaw();
-	driveForward(103, 1);
+	driveForward(44, 1);
 	turnRight(97); //bump turn
-	driveForward(27,1);
-	turnRight(130); //bumpy turn
+	driveForward(23,1);
+	turnRight(108); //bumpy turn
+	turnLeft(4);
 	
 	//drive down first alley for tribbles
 	openClaw();
 	lowerClaw();
-	driveForward(85, 1);
+	driveForward(70, 1);
 	closeClaw();
 	raiseClaw();
 	//driveBackward(3,1);
 	msleep(500);
 	
 	//turn around down other alley
-	dualTurn(500);
-	turnLeft(-95);
-	squareUp(1, 1.5);
+	raiseClaw();
+	turnRight(92);
+	squareUp(1, 2);
+	turnRight(-20);
+	turnLeft(-20);
+	squareUp(1, 1);
 	msleep(500);
 	turnRight(90);
 	msleep(500);
-	driveForward(70,1);
+	
+	driveForward(60,1);
 	lowerClaw();
 	openClaw();
 	driveForward(109, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
-	turnRight(-95);
-	squareUp(1,2);
-	turnLeft(90);
-	driveForward(58,1);
+	
+	turnRight(92);
+	squareUp(1, 2);
+	turnRight(-20);
+	turnLeft(-20);
+	squareUp(1, 1);
+	msleep(500);
+	turnRight(90);
+	driveForward(100,1);
 	turnRight(90);
 	driveForward(30,1);
 	turnLeft(90); //work on 

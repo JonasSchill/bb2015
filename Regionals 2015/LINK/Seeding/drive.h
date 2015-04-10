@@ -18,12 +18,12 @@
 #define BLOCK_GRAB CLAW_CLOSED+120
 
 //tuning constants
-#define DrFLC 99/LEFT_FULL_POWER
-#define DrFRC 100/RIGHT_FULL_POWER
+#define DrFLC 100/LEFT_FULL_POWER
+#define DrFRC 95/RIGHT_FULL_POWER
 #define DrBRC 96/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
-#define Rt 1
-#define Lt 1.028
+#define Rt .99 
+#define Lt .985
 #define CLAW_CLOSED 0
 #define CLAW_UP 80
 
@@ -46,7 +46,6 @@ void driveUntilLine(float speed);
 void turnRight(float degrees/*, float radius*/);
 void turnLeft(float degrees/*, float radius*/);
 void squareUp(float speed,float time);
-void dualTurn(int time);
 
 //main
 
