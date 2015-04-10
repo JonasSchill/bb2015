@@ -214,7 +214,6 @@ void enableDevices() {
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 	set_servo_position(ARM_SERVO, 1805);
 	create_connect();
-	msleep(2000);
 }
 
 

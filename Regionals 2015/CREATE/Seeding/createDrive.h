@@ -4,9 +4,9 @@
 #define SERVO_BASKET 1
 #define BASKET_DUMPED 200
 #define BASKET_RETURNED 1920
-#define ARM_LOW 750
-#define ARM_MEDIUM 550
-#define ARM_HIGH 260
+#define ARM_LOW 650
+#define ARM_MEDIUM 330
+#define ARM_HIGH 110
 #define OFFSET 75
 #define ARM_DRIVE_HEIGHT 1200
 #define ARM_VERY_HIGH 130
