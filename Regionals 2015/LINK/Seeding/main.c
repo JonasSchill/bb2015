@@ -41,10 +41,10 @@ void LINK_main() {
 	driveForward(5, 1);
 	turnRight(90);
 	closeClaw();
-	driveForward(48, 1);
-	turnRight(97); //bump turn
+	driveForward(50, 1);
+	turnRight(98); //bump turn
 	driveForward(24,1);
-	turnRight(108); //bumpy turn
+	turnRight(107); //bumpy turn
 	turnLeft(4);
 	
 	//drive down first alley for tribbles
@@ -90,7 +90,4 @@ void LINK_main() {
 	driveForward(62,1);
 	turnRight(90);
 	driveForward(30,1);
-	turnLeft(90); //work on 
-	driveForward(31, 1);
-	turnLeft(90);
 }

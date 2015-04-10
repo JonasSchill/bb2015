@@ -5,7 +5,7 @@
 void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
-	armMove(ARM_HIGH, 3500, 32, 110);	    //puts arm into position
+	armMove(ARM_HIGH, 3500, 31, 110);	    //puts arm into position
 	//playCoin();
 //	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
@@ -20,7 +20,7 @@ void pingPongMedium() {
 	armMove(ARM_MEDIUM + 300, 1000, 15, -100);		//gets into position
 	createTurnLeft(19);
 	createDrive(300, 15);
-	raiseLowerArm(ARM_MEDIUM, 500);	
+	raiseLowerArm(ARM_MEDIUM, 500);
 	//playCoin();
 	//gets ping pong
 	msleep(500);
@@ -63,10 +63,10 @@ void pingPongLow2() {
 
 void pingPongHigh2() {
 	createDriveBack(100, 2);
-	armMove(ARM_HIGH + 500, 2000, 8, -130);		//gets into position
+	armMove(ARM_HIGH + 500, 1000, 8, -200);		//gets into position
 	msleep(500);
 	createTurnRight(17);
-	armMove(ARM_HIGH, 3000, 29, 210);		//gets ping pong	
+	armMove(ARM_HIGH, 3000, 30, 210);		//gets ping pong	
 	//playCoin();
 	createDriveBack(100, 10);
 }
@@ -91,7 +91,7 @@ void scrape() {
 	createSquareUp(200, 3.3);
 	createDriveBack(100, 10);
 	createTurnRight(90);
-	createDrive(100, 6);
+	createDrive(100, 7);
 	createTurnRight(270);
 }
 
@@ -106,7 +106,7 @@ void preparePingPong() {
 void dump() {
 	raiseLowerArm(ARM_DRIVE_HEIGHT, 1000);
 	createTurnRight(49);
-	createDrive(300, 107);
+	createDrive(300, 108);
 	raiseLowerArm(ARM_VERY_HIGH, 1000);
 	createTurnLeft(94);
 	createSquareUp(300, 1);

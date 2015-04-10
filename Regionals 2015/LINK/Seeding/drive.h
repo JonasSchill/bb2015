@@ -25,7 +25,7 @@
 #define Rt .99 
 #define Lt .985
 #define CLAW_CLOSED 0
-#define CLAW_UP 5
+#define CLAW_UP 250
 
 //tune this value to make driving as accurate as possible
 #define CMTOBEMF (866/(PI*WHEEL_DIAMETER))

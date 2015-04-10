@@ -105,6 +105,8 @@ void createTurnRight(int degrees) {
 }
 
 void createBasketDump(){
+	set_servo_position(SERVO_BASKET, 1200);
+	msleep(200);
 	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
 	msleep(750);
 	set_servo_position(SERVO_BASKET, 1200);
@@ -212,8 +214,9 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 void enableDevices() {
 	enable_servos();
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+	msleep(2000);
 	set_servo_position(ARM_SERVO, 1805);
-	msleep(10000);
+	msleep(8000);
 	create_connect();
 }
 
