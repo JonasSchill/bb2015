@@ -217,6 +217,24 @@ void enableDevices() {
 	create_connect();
 }
 
+void loadSounds() {
+	//Put create in full mode
+	create_write_byte(128);
+	create_write_byte(132);
+	//Load Coin sound
+	create_write_byte(140);
+	create_write_byte(0);
+	create_write_byte(2);
+	create_write_byte(83);
+	create_write_byte(6);
+	create_write_byte(88);
+	create_write_byte(32);
+}
+
+void playCoin() {
+	create_write_byte(141);
+	create_write_byte(0);
+}
 
 /*
 void servo_drive(int end, int time, float d_speed, float distance) //-d_speed means backwards

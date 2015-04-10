@@ -28,3 +28,7 @@ void createSquareUp(float speed,float time);
 
 //create main
 void create_Main();
+
+//Sound effects
+void loadSounds();
+void playCoin();
