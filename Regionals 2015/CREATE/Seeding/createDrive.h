@@ -4,13 +4,13 @@
 #define SERVO_BASKET 1
 #define BASKET_DUMPED 200
 #define BASKET_RETURNED 1920
-#define ARM_LOW 650
-#define ARM_MEDIUM 330
-#define ARM_HIGH 110
+#define ARM_LOW 666
+#define ARM_MEDIUM 400
+#define ARM_HIGH 90
 #define OFFSET 75
-#define ARM_DRIVE_HEIGHT 1200
-#define ARM_VERY_HIGH 130
-#define ARM_DOWN 1695
+#define ARM_DRIVE_HEIGHT 1215
+#define ARM_VERY_HIGH 90
+#define ARM_DOWN 1630
 
 //create arm functions
 void servo_drive(int end, int time, float d_speed, float distance);

@@ -15,7 +15,7 @@ void LINK_main() {
 	msleep(300);
 	
 	//blocks to basket
- 	raiseClaw();
+	raiseClawReady();
 	driveForward(30, 1);
 	msleep(200);
 	turnLeft(90);
@@ -64,13 +64,14 @@ void LINK_main() {
 	turnLeft(-20);
 	squareUp(1, 1);
 	msleep(500);
-	turnRight(90);
+	driveForward(1, 1);
+	turnRight(93);
 	msleep(500);
 	
-	driveForward(65,1);
+	driveForward(75,1);
 	lowerClaw();
 	openClaw();
-	driveForward(92, 1);
+	driveForward(85, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
