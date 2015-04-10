@@ -39,7 +39,7 @@ void LINK_main() {
 	driveForward(5, 1);
 	turnRight(90);
 	closeClaw();
-	driveForward(46, 1);
+	driveForward(48, 1);
 	turnRight(97); //bump turn
 	driveForward(24,1);
 	turnRight(108); //bumpy turn

@@ -6,6 +6,7 @@ void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
 	armMove(ARM_HIGH, 3500, 32, 110);	    //puts arm into position
+	//playCoin();
 //	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
 	//createDriveBack(100, 8);
@@ -19,7 +20,9 @@ void pingPongMedium() {
 	armMove(ARM_MEDIUM + 300, 1000, 15, -100);		//gets into position
 	createTurnLeft(19);
 	createDrive(300, 15);
-	raiseLowerArm(ARM_MEDIUM, 500);				//gets ping pong
+	raiseLowerArm(ARM_MEDIUM, 500);	
+	//playCoin();
+	//gets ping pong
 	msleep(500);
 	//createDriveBack(100, 12);
 	//msleep(500);
@@ -32,7 +35,9 @@ void pingPongLow() {
 	msleep(500);
 	createTurnLeft(16);
 	createDrive(300, 26);
-	raiseLowerArm(ARM_LOW-100, 500);		//gets ping pong	
+	raiseLowerArm(ARM_LOW-100, 500);
+	//playCoin();
+	//gets ping pong	
 	createDriveBack(200, 5);
 	raiseLowerArm(ARM_DRIVE_HEIGHT-50, 500);
 }
@@ -53,6 +58,7 @@ void pingPongLow2() {
 	armMove(ARM_LOW+400, 1000, 10, 100);
 	createDrive(300, 10);
 	raiseLowerArm(ARM_LOW, 1000);
+	//playCoin();
 }
 
 void pingPongHigh2() {
@@ -61,6 +67,7 @@ void pingPongHigh2() {
 	msleep(500);
 	createTurnRight(17);
 	armMove(ARM_HIGH, 3000, 29, 210);		//gets ping pong	
+	//playCoin();
 	createDriveBack(100, 10);
 }
 
@@ -69,7 +76,8 @@ void pingPongMedium2() {
 	armMove(ARM_MEDIUM + 300, 1000, 14, -100);		//gets into position
 	createTurnRight(18);
 	createDrive(300, 18);
-	raiseLowerArm(ARM_MEDIUM - 150, 1000);				//gets ping pong
+	raiseLowerArm(ARM_HIGH, 1000);		//gets ping pong
+	//playCoin();
 	msleep(500);
 }
 
@@ -98,7 +106,7 @@ void preparePingPong() {
 void dump() {
 	raiseLowerArm(ARM_DRIVE_HEIGHT, 1000);
 	createTurnRight(49);
-	createDrive(300, 108);
+	createDrive(300, 107);
 	raiseLowerArm(ARM_VERY_HIGH, 1000);
 	createTurnLeft(94);
 	createSquareUp(300, 1);
@@ -128,6 +136,7 @@ void createMain() { //This is being programmed for the actual competion now
 
 int main() {
 	enableDevices();
+	loadSounds();
 	createMain();
 	return 0;
 }
