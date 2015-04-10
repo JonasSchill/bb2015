@@ -32,3 +32,4 @@ void create_Main();
 //Sound effects
 void loadSounds();
 void playCoin();
+void playPowerup();

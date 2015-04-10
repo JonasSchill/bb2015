@@ -229,11 +229,50 @@ void loadSounds() {
 	create_write_byte(6);
 	create_write_byte(88);
 	create_write_byte(32);
+	//Load Powerup sound
+	create_write_byte(140);
+	create_write_byte(1);
+	create_write_byte(15);
+	create_write_byte(67);
+	create_write_byte(4);
+	create_write_byte(71);
+	create_write_byte(4);
+	create_write_byte(86);
+	create_write_byte(4);
+	create_write_byte(91);
+	create_write_byte(4);
+	create_write_byte(95);
+	create_write_byte(4);
+	create_write_byte(68);
+	create_write_byte(4);
+	create_write_byte(72);
+	create_write_byte(4);
+	create_write_byte(87);
+	create_write_byte(4);
+	create_write_byte(92);
+	create_write_byte(4);
+	create_write_byte(96);
+	create_write_byte(4);
+	create_write_byte(70);
+	create_write_byte(4);
+	create_write_byte(74);
+	create_write_byte(4);
+	create_write_byte(89);
+	create_write_byte(4);
+	create_write_byte(94);
+	create_write_byte(4);
+	create_write_byte(98);
+	create_write_byte(5);
 }
 
 void playCoin() {
 	create_write_byte(141);
 	create_write_byte(0);
+}
+
+void playPowerup() {
+	create_write_byte(141);
+	create_write_byte(1);
 }
 
 /*
