@@ -86,6 +86,6 @@ void LINK_main() {
 	turnRight(90);
 	driveForward(30,1);
 	turnLeft(90); //work on 
-	driveForward(30, 1);
+	driveForward(31, 1);
 	turnLeft(90);
 }
