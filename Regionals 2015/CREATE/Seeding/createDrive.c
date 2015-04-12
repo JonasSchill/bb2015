@@ -233,7 +233,7 @@ void loadSounds() {
 	create_write_byte(6);
 	create_write_byte(88);
 	create_write_byte(32);
-	//Load Powerup sound
+	//Load Powerup sound, as an array
 	char powerUp[15] = {67,71,86,91,95,68,72,87,92,96,70,74,89,94,98};
 	create_write_byte(140);
 	create_write_byte(1);
