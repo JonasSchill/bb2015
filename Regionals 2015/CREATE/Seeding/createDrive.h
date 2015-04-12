@@ -5,11 +5,11 @@
 #define BASKET_DUMPED 200
 #define BASKET_RETURNED 1920
 #define ARM_LOW 666
-#define ARM_MEDIUM 400
-#define ARM_HIGH 90
+#define ARM_MEDIUM 300
+#define ARM_HIGH 0
 #define OFFSET 75
 #define ARM_DRIVE_HEIGHT 1215
-#define ARM_VERY_HIGH 90
+#define ARM_VERY_HIGH 0
 #define ARM_DOWN 1630
 
 //create arm functions

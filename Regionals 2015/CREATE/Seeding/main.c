@@ -5,7 +5,7 @@
 void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
-	armMove(ARM_HIGH, 3500, 31, 110);	    //puts arm into position
+	armMove(ARM_HIGH, 4000, 31, 110);	    //puts arm into position
 //	playCoin();
 //	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
@@ -31,7 +31,7 @@ void pingPongMedium() {
 void pingPongLow() {
 	//raiseLowerArm(ARM_LOW - 100, 1);
 	createDriveBack(200, 3);
-	armMove(ARM_LOW + 350, 1000, 9, -150);		//gets into position
+	armMove(ARM_LOW + 450, 1000, 9, -150);		//gets into position
 	msleep(500);
 	createTurnLeft(16);
 	createDrive(300, 26);
@@ -55,7 +55,7 @@ void pingPong2() {
 }
 
 void pingPongLow2() {
-	armMove(ARM_LOW+400, 1000, 10, 100);
+	armMove(ARM_LOW+500, 1000, 10, 100);
 	createDrive(300, 10);
 	raiseLowerArm(ARM_LOW, 1000);
 //	playCoin();
@@ -65,8 +65,8 @@ void pingPongHigh2() {
 	createDriveBack(100, 2);
 	armMove(ARM_HIGH + 500, 1000, 8, -200);		//gets into position
 	msleep(500);
-	createTurnRight(17);
-	armMove(ARM_HIGH, 3000, 30, 210);		//gets ping pong	
+	createTurnRight(15);
+	armMove(ARM_HIGH, 4000, 30, 210);		//gets ping pong	
 //	playCoin();
 	createDriveBack(100, 10);
 }
@@ -86,29 +86,30 @@ void pingPongMedium2() {
 void scrape() {
 	raiseLowerArm(100, ARM_HIGH);
 	driveTouch(-200);
-	createTurnLeft(40);
-	createTurnRight(40);
+	createTurnLeft(30);
+	createTurnRight(30);
 	createSquareUp(200, 3.3);
 	createDriveBack(100, 10);
 	createTurnRight(90);
-	createDrive(100, 7);
+	createDrive(100, 10);
 	createTurnRight(270);
 }
 
 void preparePingPong() {
-	createTurnLeft(56);
+	createTurnLeft(55);
 	createSquareUp(500, 3.9);
 	createSquareUp(300, 1.2);
-	createTurnRight(84);
+	createTurnRight(88);
 	driveTouch(-100);	
 }
 
 void dump() {
 	raiseLowerArm(ARM_DRIVE_HEIGHT, 1000);
 	createTurnRight(49);
-	createDrive(300, 108);
+	driveTouch(-400);
+	createDrive(300, 125);
 	raiseLowerArm(ARM_VERY_HIGH, 1000);
-	createTurnLeft(94);
+	createTurnLeft(91);
 	createSquareUp(300, 1);
 	createBasketDump();
 }
@@ -117,11 +118,10 @@ void dump2() {
 	createDriveBack(100, 45);
 	createTurnRight(3);
 	raiseLowerArm(ARM_DOWN, 1000);
-	msleep(5000);
+	msleep(10000);
 	raiseLowerArm(ARM_VERY_HIGH, 1000);
 	createTurnLeft(2);
 	createSquareUp(300, 3);
-	createTurnLeft(2);
 	createBasketDump();
 }
 

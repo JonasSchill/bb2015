@@ -43,7 +43,6 @@ void closeClaw () {
 
 void dumpClaw () {
 	closeClaw();
-	raiseClaw();
 	openClaw();
 	closeClaw();
 	openClaw();

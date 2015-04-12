@@ -42,9 +42,9 @@ void LINK_main() {
 	turnRight(90);
 	closeClaw();
 	driveForward(50, 1);
-	turnRight(98); //bump turn
+	turnRight(108); //bump turn
 	driveForward(24,1);
-	turnRight(107); //bumpy turn
+	turnRight(103); //bumpy turn
 	turnLeft(4);
 	
 	//drive down first alley for tribbles
@@ -60,34 +60,47 @@ void LINK_main() {
 	raiseClaw();
 	turnRight(92);
 	squareUp(1, 0.5);
-	turnLeft(-20);
+	turnLeft(-40);
 	squareUp(1, 1.5);
 	turnRight(-20);
 	turnLeft(-20);
 	squareUp(1, 1);
 	msleep(500);
 	driveForward(1, 1);
-	turnRight(93);
+	turnRight(98);
 	msleep(500);
-	
-	driveForward(75,1);
 	lowerClaw();
 	openClaw();
-	driveForward(85, 1);
+	
+	driveForward(60,1);
+	closeClaw();
+	raiseClaw();
+	driveForward(15, 1);
+	lowerClaw();
+	openClaw();
+	driveForward(100, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
 	
 	turnRight(74);
 	squareUp(1, 0.5);
-	turnLeft(-20);
+	turnLeft(-35);
 	squareUp(1, 1.5);
 	turnRight(-20);
 	turnLeft(-20);
 	squareUp(1, 1);
 	msleep(500);
-	turnRight(90);
-	driveForward(62,1);
+	turnRight(100);
+	lowerClaw();
+	openClaw();
+	driveForward(40, 1);
+	closeClaw();
+	raiseClaw();
+	driveForward(22, 1);
 	turnRight(90);
 	driveForward(30,1);
+	turnLeft(90);
+	raiseClawReady();
+	dumpClaw();
 }
