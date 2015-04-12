@@ -65,7 +65,7 @@ void pingPongHigh2() {
 	createDriveBack(100, 2);
 	armMove(ARM_HIGH + 700, 1000, 8, -200);		//gets into position
 	msleep(500);
-	createTurnRight(15);
+	createTurnRight(16);
 	armMove(ARM_HIGH, 4500, 30, 250);		//gets ping pong	
 //	playCoin();
 	createDriveBack(100, 10);
@@ -74,7 +74,7 @@ void pingPongHigh2() {
 void pingPongMedium2() {
 	createDriveBack(100, 2);
 	armMove(ARM_MEDIUM + 300, 1000, 14, -100);		//gets into position
-	createTurnRight(18);
+	createTurnRight(19);
 	createDrive(300, 18);
 	raiseLowerArm(ARM_HIGH, 1000);		//gets ping pong
 //	playCoin();
