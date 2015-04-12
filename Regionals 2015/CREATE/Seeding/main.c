@@ -63,10 +63,10 @@ void pingPongLow2() {
 
 void pingPongHigh2() {
 	createDriveBack(100, 2);
-	armMove(ARM_HIGH + 500, 1000, 8, -200);		//gets into position
+	armMove(ARM_HIGH + 700, 1000, 8, -200);		//gets into position
 	msleep(500);
 	createTurnRight(15);
-	armMove(ARM_HIGH, 4000, 30, 210);		//gets ping pong	
+	armMove(ARM_HIGH, 4500, 30, 250);		//gets ping pong	
 //	playCoin();
 	createDriveBack(100, 10);
 }

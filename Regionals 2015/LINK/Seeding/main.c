@@ -78,7 +78,7 @@ void LINK_main() {
 	driveForward(15, 1);
 	lowerClaw();
 	openClaw();
-	driveForward(100, 1);
+	driveForward(90, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
@@ -94,7 +94,7 @@ void LINK_main() {
 	turnRight(100);
 	lowerClaw();
 	openClaw();
-	driveForward(40, 1);
+	driveForward(30, 1);
 	closeClaw();
 	raiseClaw();
 	driveForward(22, 1);
