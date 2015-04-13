@@ -44,13 +44,17 @@ void LINK_main() {
 	driveForward(50, 1);
 	turnRight(108); //bump turn
 	driveForward(24,1);
-	turnRight(103); //bumpy turn
+	turnRight(103); //bumpy turn	
+	/*driveForward(49, 1);
+	turnRight(103); //bump turn
+	driveForward(28,1);
+	turnRight(112); //bumpy turn*/
 	turnLeft(4);
 	
 	//drive down first alley for tribbles
 	openClaw();
 	lowerClaw();
-	driveForward(70, 1);
+	driveForward(71, 1);
 	closeClaw();
 	raiseClaw();
 	//driveBackward(3,1);
@@ -72,10 +76,14 @@ void LINK_main() {
 	lowerClaw();
 	openClaw();
 	
+<<<<<<< Updated upstream
 	driveForward(60,1);
 	closeClaw();
 	raiseClaw();
 	driveForward(15, 1);
+=======
+	veerForward(78,1);
+>>>>>>> Stashed changes
 	lowerClaw();
 	openClaw();
 	driveForward(90, 1);

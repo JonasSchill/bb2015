@@ -20,10 +20,11 @@
 //tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
 #define DrFRC 98/RIGHT_FULL_POWER
+#define veerFRC 96
 #define DrBRC 96/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER
-#define Rt .99 
-#define Lt .985
+#define Rt 1 
+#define Lt 1
 #define CLAW_CLOSED 0
 #define CLAW_UP 250
 
@@ -46,6 +47,7 @@ void driveUntilLine(float speed);
 void turnRight(float degrees/*, float radius*/);
 void turnLeft(float degrees/*, float radius*/);
 void squareUp(float speed,float time);
+void veerForward(float distance, float speed);
 
 //main
 

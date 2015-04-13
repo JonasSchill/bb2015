@@ -68,7 +68,15 @@ void driveForward(float distance, float speed) {
 	printf("%d\n", get_motor_position_counter(MOTOR_LEFT));
 	ao();
 }
-
+void veerForward(float distance, float speed) {
+	clear_motor_position_counter(MOTOR_LEFT);
+	clear_motor_position_counter(MOTOR_RIGHT);
+	motor(MOTOR_LEFT, speed*LEFT_FULL_POWER*DrFLC);
+	motor(MOTOR_RIGHT, speed*RIGHT_FULL_POWER*veerFRC);
+	while(get_motor_position_counter(MOTOR_LEFT)< distance*CMTOBEMF  && get_motor_position_counter(MOTOR_RIGHT) < distance*CMTOBEMF) {}
+	printf("%d\n", get_motor_position_counter(MOTOR_LEFT));
+	ao();
+}
 	/**
 		Drives the robot backward a specified distance at a specified speed.
 		
