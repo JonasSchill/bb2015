@@ -33,3 +33,4 @@ void create_Main();
 void loadSounds();
 void playCoin();
 void playPowerup();
+void playWin();

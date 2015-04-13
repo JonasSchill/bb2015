@@ -247,6 +247,29 @@ void loadSounds() {
 	}
 	create_write_byte(powerUp[14]);
 	create_write_byte(5);
+	//Load Win sound from array
+	char win[16] = {55,60,68,67,72,76,79,76,56,60,63,68,72,75,80,75};
+	char win2[11] = {58,62,65,70,74,77,82,82,82,82,84};
+	char winLengths[16] = {8,8,8,8,8,8,16,16,8,8,8,8,8,8,16,16};
+	char winLengths2[11] = {8,8,8,8,8,8,16,8,8,8,32};
+	create_write_byte(128);
+	create_write_byte(132);
+	
+	create_write_byte(140);
+	create_write_byte(2);
+	create_write_byte(16);
+	for(i = 0; i <= 15; i++) {
+		create_write_byte(win[i]);
+		create_write_byte(winLengths[i]);
+	}
+	
+	create_write_byte(140);
+	create_write_byte(3);
+	create_write_byte(11);
+	for(i = 0; i <= 10; i++) {
+		create_write_byte(win2[i]);
+		create_write_byte(winLengths2[i]);
+	}
 }
 
 void playCoin() {
@@ -257,6 +280,14 @@ void playCoin() {
 void playPowerup() {
 	create_write_byte(141);
 	create_write_byte(1);
+}
+
+void playWin() {
+	create_write_byte(141);
+	create_write_byte(2);
+	msleep(2400);
+	create_write_byte(141);
+	create_write_byte(3);
 }
 
 /*
