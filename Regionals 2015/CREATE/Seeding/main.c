@@ -2,11 +2,17 @@
 
 //main file gets run by robot calls methods in all other files
 
+void playTunes() {
+	enableDevices();
+	playPowerup();
+	playCoin();
+}
+
 void pingPongHigh() {
 	//raiseLowerArm(ARM_HIGH - 200, 0.5);		//drives with raised arm
 	//createDrive(100, 26);	
 	armMove(ARM_HIGH, 4000, 31, 110);	    //puts arm into position
-//	playCoin();
+	playCoin();
 //	raiseLowerArm(ARM_HIGH, 1);					//gets ping pong ball
 	msleep(500);
 	//createDriveBack(100, 8);
@@ -21,7 +27,7 @@ void pingPongMedium() {
 	createTurnLeft(19);
 	createDrive(300, 15);
 	raiseLowerArm(ARM_MEDIUM, 500);
-//	playCoin();
+	playCoin();
 	//gets ping pong
 	msleep(500);
 	//createDriveBack(100, 12);
@@ -36,7 +42,7 @@ void pingPongLow() {
 	createTurnLeft(16);
 	createDrive(300, 26);
 	raiseLowerArm(ARM_LOW-100, 500);
-//	playCoin();
+	playCoin();
 	//gets ping pong	
 	createDriveBack(200, 5);
 	raiseLowerArm(ARM_DRIVE_HEIGHT-50, 500);
@@ -58,7 +64,7 @@ void pingPongLow2() {
 	armMove(ARM_LOW+500, 1000, 10, 100);
 	createDrive(300, 10);
 	raiseLowerArm(ARM_LOW, 1000);
-//	playCoin();
+	playCoin();
 }
 
 void pingPongHigh2() {
@@ -67,7 +73,7 @@ void pingPongHigh2() {
 	msleep(500);
 	createTurnRight(15);
 	armMove(ARM_HIGH, 4500, 30, 250);		//gets ping pong	
-//	playCoin();
+	playCoin();
 	createDriveBack(100, 10);
 }
 
@@ -77,7 +83,7 @@ void pingPongMedium2() {
 	createTurnRight(18);
 	createDrive(300, 18);
 	raiseLowerArm(ARM_HIGH, 1000);		//gets ping pong
-//	playCoin();
+	playCoin();
 	msleep(500);
 }
 
@@ -137,5 +143,6 @@ void createMain() { //This is being programmed for the actual competion now
 int main() {
 	enableDevices();
 	createMain();
+//	playTunes();
 	return 0;
 }

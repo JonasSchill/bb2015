@@ -94,7 +94,7 @@ void LINK_main() {
 	turnRight(100);
 	lowerClaw();
 	openClaw();
-	driveForward(30, 1);
+	driveForward(37, 1);
 	closeClaw();
 	raiseClaw();
 	driveForward(22, 1);
