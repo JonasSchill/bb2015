@@ -1,5 +1,13 @@
 #include "createDrive.h"
 
+void createScrapeBasket() {
+	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
+}
+
+void createScrapeBasketBack() {
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+}
+
 void driveTouch(speed) {
 	int x = 0;
 	create_drive_direct(-1*speed,-1*speed);

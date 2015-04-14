@@ -71,7 +71,7 @@ void pingPongHigh2() {
 	createDriveBack(100, 2);
 	armMove(ARM_HIGH + 700, 1000, 8, -200);		//gets into position
 	msleep(500);
-	createTurnRight(15);
+	createTurnRight(17);
 	armMove(ARM_HIGH, 4500, 30, 250);		//gets ping pong	
 	playCoin();
 	createDriveBack(100, 10);
@@ -90,15 +90,13 @@ void pingPongMedium2() {
 
 
 void scrape() {
-	raiseLowerArm(100, ARM_HIGH);
+	raiseLowerArm(1000, ARM_HIGH);
+	createTurnLeft(-20);
+	createTurnRight(-20);
 	driveTouch(-200);
-	createTurnLeft(30);
-	createTurnRight(30);
-	createSquareUp(200, 3.3);
-	createDriveBack(100, 10);
-	createTurnRight(90);
 	createDrive(100, 10);
-	createTurnRight(270);
+	createScrapeBasket();
+	createSquareUp(100, 5);
 }
 
 void squareAndSound() {
@@ -138,6 +136,7 @@ void dump2() {
 	createTurnLeft(2);
 	createSquareUp(300, 3);
 	createBasketDump();
+	playWin();
 }
 
 void createMain() { //This is being programmed for the actual competion now
