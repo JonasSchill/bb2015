@@ -270,6 +270,29 @@ void loadSounds() {
 		create_write_byte(win2[i]);
 		create_write_byte(winLengths2[i]);
 	}
+	//Load "starman" sound from array
+	char star[16] = {72,72,72,62,72,72,62,72,62,72,71,71,71,60,71,71};
+	char star2[4] = {60,71,60,71};
+	char starLengths[16] = {16,16,16,8,8,16,8,8,8,16,16,16,16,8,8,16};
+	char starLengths2[11] = {8,8,8,16};
+	create_write_byte(128);
+	create_write_byte(132);
+	
+	create_write_byte(140);
+	create_write_byte(4);
+	create_write_byte(16);
+	for(i = 0; i <= 15; i++) {
+		create_write_byte(star[i]);
+		create_write_byte(starLengths[i]);
+	}
+	
+	create_write_byte(140);
+	create_write_byte(5);
+	create_write_byte(4);
+	for(i = 0; i <= 3; i++) {
+		create_write_byte(star2[i]);
+		create_write_byte(starLengths2[i]);
+	}
 }
 
 void playCoin() {
@@ -288,6 +311,17 @@ void playWin() {
 	msleep(2400);
 	create_write_byte(141);
 	create_write_byte(3);
+}
+
+void playStar() {
+	create_write_byte(141);
+	create_write_byte(0);
+	msleep(2500);
+	create_write_byte(141);
+	create_write_byte(1);
+	msleep(450);
+	create_write_byte(141);
+	create_write_byte(0);
 }
 
 /*
