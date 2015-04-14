@@ -101,10 +101,19 @@ void scrape() {
 	createTurnRight(270);
 }
 
+void squareAndSound() {
+	create_drive_straight(-500);
+	playStar();
+	msleep(950);
+	create_drive_straight(-300);
+	msleep(1200);
+}
+
 void preparePingPong() {
 	createTurnLeft(55);
-	createSquareUp(500, 3.9);
-	createSquareUp(300, 1.2);
+	//createSquareUp(500, 3.9);
+	//createSquareUp(300, 1.2);
+	squareAndSound();
 	createTurnRight(88);
 	driveTouch(-100);	
 }

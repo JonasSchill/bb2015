@@ -34,3 +34,4 @@ void loadSounds();
 void playCoin();
 void playPowerup();
 void playWin();
+void playStar();
