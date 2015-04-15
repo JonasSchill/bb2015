@@ -1,21 +1,18 @@
 #include "createDrive.h"
 
+void createScrapeBasket() {
+	set_servo_position(SERVO_BASKET, 0);
+}
+
+void createScrapeBasketBack() {
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+}
+
 void driveTouch(speed) {
 	int x = 0;
 	create_drive_direct(-1*speed,-1*speed);
 	while(x == 0) {
 		if (get_create_lbump() == 1 || get_create_rbump() == 1) {
-			x = 1;
-		}
-	}
-	create_stop();
-}
-
-void driveTouchR(speed) {
-	int x = 0;
-	create_drive_direct(-1*speed,-1*speed);
-	while(x == 0) {
-		if (get_create_rbump() == 1) {
 			x = 1;
 		}
 	}
@@ -83,6 +80,39 @@ void armMove(int destination, float time, int distance, int speed) {
 	}
 }
 
+void armTurn(int destination, float time, int degrees) {
+	int increment;
+	int initAngle = get_servo_position(0);
+	int driveDone = 0;
+	int armDone = 0;
+	int angle = initAngle;
+	if(angle < destination) {
+		increment = 5;
+	} else {
+		increment = -5;
+	}	
+		
+	while(driveDone == 0 || armDone == 0) {
+		printf("%d\n", angle);
+		if(abs(angle - destination) > 5) {
+			angle+=increment;
+			set_servo_position(ARM_SERVO, angle);
+			msleep(time / abs(destination - initAngle));
+		} else {
+			armDone = 1;
+		}
+			if(get_create_distance()*10 > 0) {
+				set_create_normalized_angle(0); //Reset the angle
+				create_spin_CCW(250); //Spin at half power
+				while(get_create_normalized_angle() < degrees - 20) {} //go most of the distance
+				create_spin_CCW(50); //slow down as to not overshoot
+				while(get_create_normalized_angle() < degrees) {} //and finish the turn
+				create_stop();
+				driveDone = 1;
+			}
+	}
+}
+
 void createDrive(float speed, float distance) {
 	set_create_distance(distance*10);
 	create_drive_straight(-speed);
@@ -116,6 +146,8 @@ void createTurnRight(int degrees) {
 }
 
 void createBasketDump(){
+	set_servo_position(SERVO_BASKET, 1200);
+	msleep(200);
 	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
 	msleep(750);
 	set_servo_position(SERVO_BASKET, 1200);
@@ -222,12 +254,116 @@ void createArmSquareUp(int armDestination, float armSleepTime, float moveTime, f
 
 void enableDevices() {
 	enable_servos();
-//	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
-//	set_servo_position(ARM_SERVO, 1805);
 	create_connect();
-	msleep(2000);
+	loadSounds();
+//	msleep(10000);
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+	set_servo_position(ARM_SERVO, 0);
+/*	msleep(6000);
+	playPowerup();
+	msleep(4000);*/
 }
 
+void loadSounds() {
+	//Put create in full mode
+	create_write_byte(128);
+	create_write_byte(132);
+	//Load Coin sound
+	create_write_byte(140);
+	create_write_byte(0);
+	create_write_byte(2);
+	create_write_byte(83);
+	create_write_byte(6);
+	create_write_byte(88);
+	create_write_byte(32);
+	//Load Powerup sound, as an array
+	char powerUp[15] = {67,71,86,91,95,68,72,87,92,96,70,74,89,94,98};
+	create_write_byte(140);
+	create_write_byte(1);
+	create_write_byte(15);
+	int i;
+	for(i = 0; i < 14; i++) {
+		create_write_byte(powerUp[i]);
+		create_write_byte(4);
+	}
+	create_write_byte(powerUp[14]);
+	create_write_byte(5);
+	//Load Win sound from array
+	char win[16] = {55,60,68,67,72,76,79,76,56,60,63,68,72,75,80,75};
+	char win2[11] = {58,62,65,70,74,77,82,82,82,82,84};
+	char winLengths[16] = {8,8,8,8,8,8,16,16,8,8,8,8,8,8,16,16};
+	char winLengths2[11] = {8,8,8,8,8,8,16,8,8,8,32};
+	create_write_byte(128);
+	create_write_byte(132);
+	
+	create_write_byte(140);
+	create_write_byte(2);
+	create_write_byte(16);
+	for(i = 0; i <= 15; i++) {
+		create_write_byte(win[i]);
+		create_write_byte(winLengths[i]);
+	}
+	
+	create_write_byte(140);
+	create_write_byte(3);
+	create_write_byte(11);
+	for(i = 0; i <= 10; i++) {
+		create_write_byte(win2[i]);
+		create_write_byte(winLengths2[i]);
+	}
+	//Load "starman" sound from array
+	char star[16] = {72,72,72,62,72,72,62,72,62,72,71,71,71,60,71,71};
+	char star2[4] = {60,71,60,71};
+	char starLengths[16] = {16,16,16,8,8,16,8,8,8,16,16,16,16,8,8,16};
+	char starLengths2[11] = {8,8,8,16};
+	create_write_byte(128);
+	create_write_byte(132);
+	
+	create_write_byte(140);
+	create_write_byte(4);
+	create_write_byte(16);
+	for(i = 0; i <= 15; i++) {
+		create_write_byte(star[i]);
+		create_write_byte(starLengths[i]);
+	}
+	
+	create_write_byte(140);
+	create_write_byte(5);
+	create_write_byte(4);
+	for(i = 0; i <= 3; i++) {
+		create_write_byte(star2[i]);
+		create_write_byte(starLengths2[i]);
+	}
+}
+
+void playCoin() {
+	create_write_byte(141);
+	create_write_byte(0);
+}
+
+void playPowerup() {
+	create_write_byte(141);
+	create_write_byte(1);
+}
+
+void playWin() {
+	create_write_byte(141);
+	create_write_byte(2);
+	msleep(2400);
+	create_write_byte(141);
+	create_write_byte(3);
+}
+
+void playStar() {
+	create_write_byte(141);
+	create_write_byte(4);
+	msleep(2500);
+	create_write_byte(141);
+	create_write_byte(5);
+	msleep(450);
+	create_write_byte(141);
+	create_write_byte(4);
+}
 
 /*
 void servo_drive(int end, int time, float d_speed, float distance) //-d_speed means backwards

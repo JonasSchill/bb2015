@@ -4,12 +4,13 @@
 #define SERVO_BASKET 1
 #define BASKET_DUMPED 200
 #define BASKET_RETURNED 1920
-#define ARM_LOW 750
-#define ARM_MEDIUM 550
-#define ARM_HIGH 260
+#define ARM_LOW 666
+#define ARM_MEDIUM 300
+#define ARM_HIGH 0
 #define OFFSET 75
-#define ARM_DRIVE_HEIGHT 1200
-#define ARM_VERY_HIGH 130
+#define ARM_DRIVE_HEIGHT 1215
+#define ARM_VERY_HIGH 0
+#define ARM_DOWN 1630
 
 //create arm functions
 void servo_drive(int end, int time, float d_speed, float distance);
@@ -27,3 +28,10 @@ void createSquareUp(float speed,float time);
 
 //create main
 void create_Main();
+
+//Sound effects
+void loadSounds();
+void playCoin();
+void playPowerup();
+void playWin();
+void playStar();

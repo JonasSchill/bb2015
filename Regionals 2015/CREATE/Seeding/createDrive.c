@@ -1,7 +1,7 @@
 #include "createDrive.h"
 
 void createScrapeBasket() {
-	set_servo_position(SERVO_BASKET, BASKET_DUMPED);
+	set_servo_position(SERVO_BASKET, 0);
 }
 
 void createScrapeBasketBack() {
@@ -226,9 +226,9 @@ void enableDevices() {
 //	msleep(10000);
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 	set_servo_position(ARM_SERVO, 1805);
-	msleep(8000);
+	msleep(6000);
 	playPowerup();
-	msleep(2000);
+	msleep(4000);
 }
 
 void loadSounds() {
@@ -323,13 +323,13 @@ void playWin() {
 
 void playStar() {
 	create_write_byte(141);
-	create_write_byte(0);
+	create_write_byte(4);
 	msleep(2500);
 	create_write_byte(141);
-	create_write_byte(1);
+	create_write_byte(5);
 	msleep(450);
 	create_write_byte(141);
-	create_write_byte(0);
+	create_write_byte(4);
 }
 
 /*
