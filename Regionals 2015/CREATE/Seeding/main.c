@@ -57,7 +57,7 @@ void pingPong() {
 void pingPong2() {
 	pingPongLow2();
 	pingPongMedium2();
-	pingPongHigh2();
+		pingPongHigh2();
 }
 
 void pingPongLow2() {
@@ -71,16 +71,16 @@ void pingPongHigh2() {
 	createDriveBack(100, 2);
 	armMove(ARM_HIGH + 700, 1000, 8, -200);		//gets into position
 	msleep(500);
-	createTurnRight(17);
+	createTurnRight(18);
 	armMove(ARM_HIGH, 4500, 30, 250);		//gets ping pong	
 	playCoin();
-	createDriveBack(100, 10);
+	createDriveBack(100, 15);
 }
 
 void pingPongMedium2() {
 	createDriveBack(100, 2);
 	armMove(ARM_MEDIUM + 300, 1000, 14, -100);		//gets into position
-	createTurnRight(18);
+	createTurnRight(20);
 	createDrive(300, 18);
 	raiseLowerArm(ARM_HIGH, 1000);		//gets ping pong
 	playCoin();
@@ -112,7 +112,9 @@ void preparePingPong() {
 	//createSquareUp(500, 3.9);
 	//createSquareUp(300, 1.2);
 	squareAndSound();
-	createTurnRight(88);
+	set_servo_position(ARM_SERVO, ARM_DRIVE_HEIGHT);
+	createDriveBack(200, 5);
+	createTurnRight(80);
 	driveTouch(-100);	
 }
 
