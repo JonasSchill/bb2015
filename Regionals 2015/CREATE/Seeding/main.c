@@ -44,7 +44,7 @@ void pingPongLow() {
 	raiseLowerArm(ARM_LOW-100, 500);
 	playCoin();
 	//gets ping pong	
-	createDriveBack(200, 5);
+	createDriveBack(200, 7);
 	raiseLowerArm(ARM_DRIVE_HEIGHT-50, 500);
 }
 
@@ -109,7 +109,7 @@ void squareAndSound() {
 }
 
 void preparePingPong() {
-	createTurnLeft(55);
+	createTurnLeft(54);
 	//createSquareUp(500, 3.9);
 	//createSquareUp(300, 1.2);
 	squareAndSound();

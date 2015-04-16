@@ -142,13 +142,20 @@ void dump2() {
 	createBasketDump();
 }
 
-void calderaBlock {
+void calderaBlock(time) {
 	createTurnLeft(90);
-
+	createDrive(500, 6);
+	create_drive_direct(-280, -500);
+	msleep(1500);
+	createSquareUp(500, 1);
+	set_servo_position(SERVO_BASKET, 0);
+	msleep(1000);
+	create_stop();
+	msleep(time*100);
 }
 
 void createMain() { //This is being programmed for the actual competion now
-	calderaBlock();
+	calderaBlock(20);
 /*	pingPong();
 	preparePingPong();
 	pingPong2();
