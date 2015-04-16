@@ -138,7 +138,6 @@ void dump2() {
 	raiseLowerArm(ARM_VERY_HIGH, 1000);
 	createTurnLeft(2);
 	createSquareUp(300, 3);
-	playWin();
 	createBasketDump();
 }
 
@@ -155,5 +154,6 @@ int main() {
 	enableDevices();
 	createMain();
 //	playTunes();
+	playWin();
 	return 0;
 }
