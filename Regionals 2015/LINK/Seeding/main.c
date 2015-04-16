@@ -45,12 +45,12 @@ void LINK_main() {
 	turnRight(108); //bump turn
 	driveForward(24,1);
 	turnRight(103); //bumpy turn	*/
-	driveForward(49, 1);
-	turnRight(108); //bump turn
+	driveForward(51, 1);
+	turnRight(106); //bump turn
 	driveForward(28,1);
-	turnRight(85); //bumpy turn*/
+	turnRight(95); //bumpy turn*/
 	lowerClaw();
-	turnRight(25);
+	turnRight(15);
 	turnLeft(4);
 	
 	//drive down first alley for tribbles
@@ -64,13 +64,13 @@ void LINK_main() {
 	
 	//turn around down other alley
 	raiseClaw();
-	turnRight(92);
-	squareUp(1, 0.5);
-	turnLeft(-40);
-	squareUp(1, 1.5);
+	turnRight(100);//
+	squareUp(1, 2);
+	turnLeft(-15);
+	squareUp(1, 2);
 	turnRight(-20);
 	turnLeft(-20);
-	squareUp(1, 1);
+	//squareUp(1, 1);
 	msleep(500);
 	driveForward(1, 1);
 	turnRight(98);
@@ -78,25 +78,27 @@ void LINK_main() {
 	lowerClaw();
 	openClaw();
 	
-	/*driveForward(60,1);
+	veerForward(43,1);
 	closeClaw();
 	raiseClaw();
-	driveForward(15, 1);*/
-	veerForward(78,1);
+	driveForward(35,1);
 	lowerClaw();
 	openClaw();
-	driveForward(92, 1);
+	driveForward(97, 1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
 	
-	turnRight(74);
-	squareUp(1, 0.5);
-	turnLeft(-35);
-	squareUp(1, 1.5);
-	turnRight(-20);
-	turnLeft(-20);
-	squareUp(1, 1);
+	//
+	//
+	turnRight(100);
+	squareUp(1, 2);
+	//msleep()
+	turnLeft(-30);
+	squareUp(1, 2);
+	//turnRight(-20);
+	turnLeft(-30);
+	//squareUp(1, 1);
 	msleep(500);
 	turnRight(100);
 	lowerClaw();
@@ -104,10 +106,12 @@ void LINK_main() {
 	driveForward(42, 1);
 	closeClaw();
 	raiseClaw();
-	driveForward(22, 1);
+	driveForward(30, 1);
+	//msleep(3000)
 	turnRight(90);
-	driveForward(30,1);
-	turnLeft(90);
+	driveForward(20,1);
+	turnLeft(75);
 	raiseClawReady();
 	dumpClaw();
+	driveBackward(20,1);
 }
