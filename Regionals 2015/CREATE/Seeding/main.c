@@ -72,7 +72,7 @@ void pingPongHigh2() {
 	armMove(ARM_HIGH + 700, 1000, 8, -200);		//gets into position
 	msleep(500);
 	createTurnRight(20);
-	armMove(ARM_HIGH, 4500, 25, 250);		//gets ping pong	
+	armMove(ARM_HIGH, 4500, 24, 250);		//gets ping pong	
 	playCoin();
 	createDriveBack(100, 15);
 }
@@ -86,8 +86,6 @@ void pingPongMedium2() {
 	playCoin();
 	msleep(500);
 }
-
-
 
 void scrape() {
 	raiseLowerArm(ARM_HIGH, 3000);
