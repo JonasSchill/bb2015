@@ -56,19 +56,20 @@ void LINK_main() {
 	//drive down first alley for tribbles
 	openClaw();
 	//lowerClaw();
-	driveForward(73, 1);
+	driveForward(95, 1);
+	driveBackward(4,1);
 	closeClaw();
 	raiseClaw();
-	//driveBackward(3,1);
+	driveBackward(5,1);
 	msleep(500);
 	
 	//turn around down other alley
 	raiseClaw();
 	turnRight(100);//
 	squareUp(1, 2);
-	turnLeft(-15);
+	turnLeft(-30);
 	squareUp(1, 2);
-	turnRight(-20);
+	//turnRight(-20);
 	turnLeft(-20);
 	//squareUp(1, 1);
 	msleep(500);
@@ -84,10 +85,12 @@ void LINK_main() {
 	driveForward(35,1);
 	lowerClaw();
 	openClaw();
-	driveForward(97, 1);
+	driveForward(110, 1);
+	driveBackward(4,1);
 	closeClaw();
 	raiseClaw();
 	msleep(1000);
+	driveBackward(5,1);
 	
 	//
 	//
@@ -108,10 +111,10 @@ void LINK_main() {
 	raiseClaw();
 	driveForward(30, 1);
 	//msleep(3000)
-	turnRight(90);
-	driveForward(20,1);
-	turnLeft(75);
+	turnRight(85);
+	driveForward(25,1);
+	turnLeft(60);
 	raiseClawReady();
 	dumpClaw();
-	driveBackward(20,1);
+	driveBackward(50,1);
 }
