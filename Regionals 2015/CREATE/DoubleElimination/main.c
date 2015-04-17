@@ -144,18 +144,26 @@ void dump2() {
 
 void calderaBlock(time) {
 	createTurnLeft(90);
-	createDrive(500, 6);
+	createDrive(500, 4);
 	create_drive_direct(-280, -500);
-	msleep(1500);
+	msleep(2350);
 	createSquareUp(500, 1);
 	set_servo_position(SERVO_BASKET, 0);
 	msleep(1000);
 	create_stop();
 	msleep(time*100);
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+	driveTouch(-400);
+	createTurnLeft(90);
+	createSquareUp(400, 2);
+	createDriveBack(100, 5);
+	createTurnRight(180);
+	driveTouch(-300);
+	createTurnLeft(90);
 }
 
 void createMain() { //This is being programmed for the actual competion now
-	calderaBlock(20);
+	calderaBlock(3);
 /*	pingPong();
 	preparePingPong();
 	pingPong2();
