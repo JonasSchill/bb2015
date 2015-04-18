@@ -1,7 +1,7 @@
 #include "template.h"
 
 int main() {
-	//wait_for_light(0);
+	wait_for_light(0);
 	LINK_main();
 	/*enableAllServos();
 	openClaw();
