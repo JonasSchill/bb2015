@@ -223,18 +223,23 @@ void enableDevices() {
 	enable_servos();
 	create_connect();
 	loadSounds();
-//	msleep(10000);
+	set_servo_position(ARM_SERVO, 1805);
+	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
+}
+
+void prepareDevices() {
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 	set_servo_position(ARM_SERVO, 1805);
-	msleep(5000);
+	//msleep(10000);
+	msleep(7000);
 	playPowerup();
-	msleep(4000);
+	msleep(5000);
 }
 
 void loadSounds() {
 	//Put create in full mode
-	create_write_byte(128);
-	create_write_byte(132);
+	//create_write_byte(128);
+	//create_write_byte(132);
 	//Load Coin sound
 	create_write_byte(140);
 	create_write_byte(0);
