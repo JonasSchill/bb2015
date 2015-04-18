@@ -19,7 +19,7 @@
 
 //tuning constants
 #define DrFLC 100/LEFT_FULL_POWER
-#define DrFRC 91/RIGHT_FULL_POWER
+#define DrFRC 92/RIGHT_FULL_POWER
 #define veerFRC 96
 #define DrBRC 94/RIGHT_FULL_POWER
 #define DrBLC 100/LEFT_FULL_POWER

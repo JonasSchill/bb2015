@@ -1,8 +1,7 @@
 #include "template.h"
 
 int main() {
-	wait_for_light(0);
-	enableAllServos();
+	//wait_for_light(0);
 	LINK_main();
 	/*enableAllServos();
 	openClaw();
@@ -13,8 +12,8 @@ int main() {
 void LINK_main() {
 	
 	//start up
-	
-	//msleep(300);
+	enableAllServos();
+	msleep(300);
 	
 	//blocks to basket
 	//raiseClawReady();
@@ -22,11 +21,11 @@ void LINK_main() {
 	driveForward(40, 1);
 	msleep(200);
 	turnLeft(90);
-	driveForward(9,1);
+	driveForward(5,1);
 	msleep(200);
 	turnLeft(85);
 	msleep(500);
-	//driveForward(2, 1);
+	driveForward(10, 1);
 	msleep(500);
 	raiseClawReady();
 	openClaw();
@@ -37,8 +36,8 @@ void LINK_main() {
 	
 	//get into position to alley
 	raiseClaw();
-	driveBackward(3, 1);
-	turnLeft(-105);
+	driveBackward(5, 1);
+	turnLeft(-100);
 	squareUp(1,3);
 	msleep(200);
 	
@@ -46,7 +45,7 @@ void LINK_main() {
 	driveForward(5, 1);
 	turnRight(90);
 	closeClaw();
-	driveForward(44, 1);
+	driveForward(51, 1);
 	turnRight(106); //bump turn
 	driveForward(28,1);
 	turnRight(95); //bumpy turn
@@ -102,11 +101,11 @@ void LINK_main() {
 	driveForward(42,1);
 	//closeClaw();
 	//raiseClaw();
-	driveForward(30, 1);
-	turnRight(85);
+	driveForward(32, 1);
+	turnRight(90);
 	driveForward(25,1);
-	turnLeft(80);
+	turnRight(90);
+	driveForward(60, 1);
 	raiseClawReady();
-	dumpClaw();
-	driveBackward(50,1);
+	openClaw();
 }
