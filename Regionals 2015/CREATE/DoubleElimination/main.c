@@ -154,25 +154,29 @@ void calderaBlock(time) {
 	msleep(time*100);
 	set_servo_position(SERVO_BASKET, BASKET_RETURNED);
 	driveTouch(-400);
-	createTurnLeft(90);
+	createDrive(100, 3);
+	createTurnRight(90);
 	createSquareUp(400, 2);
 	createDriveBack(100, 5);
-	createTurnRight(180);
+	createTurnLeft(180);
 	driveTouch(-300);
-	createTurnLeft(90);
+	createTurnRight(93);
+	driveTouch(-400);
+	set_servo_position(ARM_SERVO, ARM_DOWN);
 }
 
 void createMain() { //This is being programmed for the actual competion now
 	calderaBlock(3);
-/*	pingPong();
+	pingPong();
 	preparePingPong();
 	pingPong2();
 	dump();
 	dump2();
-	scrape();*/
+	scrape();
 }
 
 int main() {
+	shut_down_in(120);
 	enableDevices();
 	createMain();
 //	playTunes();

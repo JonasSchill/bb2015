@@ -149,6 +149,7 @@ void createMain() { //This is being programmed for the actual competion now
 }
 
 int main() {
+	shut_down_in(120);
 //	wait_for_light(0);
 	enableDevices();
 	createMain();
